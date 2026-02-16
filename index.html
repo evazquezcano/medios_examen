@@ -4,25 +4,266 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Juego de Autoevaluación</title>
+
   <style>
     body { font-family: Arial, sans-serif; background:#f4f6f9; text-align:center; padding:40px; }
-    .contenedor { background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,.1); max-width:600px; margin:auto; }
-    button { padding:12px 20px; font-size:16px; border:0; border-radius:5px; background:#2c7be5; color:#fff; cursor:pointer; }
+    .contenedor { background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,.1); max-width:720px; margin:auto; }
+    h1 { margin-top: 0; }
+    .fila { margin: 14px 0; }
+    select, button { padding: 10px 12px; font-size: 16px; border-radius: 6px; }
+    button { border:0; background:#2c7be5; color:#fff; cursor:pointer; }
     button:hover { background:#1a5fc4; }
+    button.secundario { background:#6c757d; }
+    button.secundario:hover { background:#545b62; }
+    .opcion { display:block; width:100%; margin:8px 0; }
+    .estado { margin-top:12px; font-size: 14px; color:#333; }
+    .feedback { margin-top: 12px; padding: 10px; border-radius: 8px; display:none; }
+    .ok { background:#e8f7ee; border:1px solid #bde5c8; }
+    .ko { background:#fdeaea; border:1px solid #f5bcbc; }
+    .badge { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:bold; }
+    .aceptable { background:#fff3cd; border:1px solid #ffe69c; }
+    .bueno { background:#d1ecf1; border:1px solid #bee5eb; }
+    .excelente { background:#d4edda; border:1px solid #c3e6cb; }
+    .progreso { background:#f8d7da; border:1px solid #f5c6cb; }
+    .bloque { text-align:left; margin-top: 14px; }
   </style>
 </head>
+
 <body>
   <div class="contenedor">
     <h1>Juego de Autoevaluación</h1>
-    <p>Herramienta interactiva para practicar preguntas tipo test por temáticas.</p>
-    <button onclick="iniciarJuego()">Comenzar</button>
-    <div id="mensaje" style="margin-top:20px;"></div>
+    <p>Practica preguntas tipo test por temáticas. Cada partida tiene <strong>10 preguntas</strong>.</p>
+
+    <div class="fila">
+      <label for="tema"><strong>Elige tema:</strong></label>
+      <select id="tema"></select>
+      <button onclick="iniciarPartida()">Comenzar</button>
+    </div>
+
+    <div id="panelJuego" style="display:none;">
+      <div class="estado" id="estado"></div>
+
+      <div class="bloque">
+        <h3 id="enunciado"></h3>
+        <div id="opciones"></div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+    </div>
+
+    <div id="panelFinal" style="display:none; margin-top:18px;"></div>
+
+    <div class="fila" style="margin-top:18px;">
+      <button class="secundario" onclick="recargar()">Recargar página</button>
+    </div>
   </div>
+
   <script>
-    function iniciarJuego() {
-      document.getElementById("mensaje").innerHTML =
-        "<p>En el siguiente paso incorporaremos las preguntas del banco.</p>";
+    // ====== CONFIGURACIÓN DIDÁCTICA ======
+    const NUM_PREGUNTAS_POR_PARTIDA = 10;
+
+    // ====== ESTADO DEL JUEGO ======
+    let bancoPorTema = {};      // { "Tema 1": [preguntas...], "Tema 2": [...] }
+    let temaActual = "";
+    let partida = [];           // array de preguntas seleccionadas para esta partida
+    let indice = 0;             // pregunta actual (0..9)
+    let aciertos = 0;           // número de aciertos
+
+    // ====== UTILIDADES ======
+    function barajar(array) {
+      // Barajado simple (Fisher-Yates)
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function recargar() {
+      location.reload();
+    }
+
+    // ====== CARGA INICIAL DEL BANCO ======
+    window.onload = function() {
+      fetch("questions.json")
+        .then(r => r.json())
+        .then(data => {
+          bancoPorTema = data;
+          cargarSelectorTemas(Object.keys(bancoPorTema));
+        })
+        .catch(() => {
+          alert("No se pudo cargar questions.json. Revisa que el archivo exista y esté en la raíz del repositorio.");
+        });
+    };
+
+    function cargarSelectorTemas(temas) {
+      const sel = document.getElementById("tema");
+      sel.innerHTML = "";
+
+      // Opción especial: mezcla de temas
+      const optMix = document.createElement("option");
+      optMix.value = "__MEZCLA__";
+      optMix.textContent = "Mezcla de temas (aleatorio)";
+      sel.appendChild(optMix);
+
+      // Temas normales
+      temas.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.textContent = t;
+        sel.appendChild(opt);
+      });
+    }
+
+    // ====== INICIO DE PARTIDA ======
+    function iniciarPartida() {
+      const sel = document.getElementById("tema");
+      temaActual = sel.value;
+
+      // 1) Obtener el pool de preguntas según tema o mezcla
+      let pool = [];
+      if (temaActual === "__MEZCLA__") {
+        // Mezcla: unir todas las preguntas de todos los temas
+        Object.values(bancoPorTema).forEach(arr => pool = pool.concat(arr));
+      } else {
+        pool = bancoPorTema[temaActual] || [];
+      }
+
+      // 2) Validación mínima: ¿hay preguntas suficientes?
+      if (pool.length < NUM_PREGUNTAS_POR_PARTIDA) {
+        alert("En el tema seleccionado no hay suficientes preguntas. Necesitas al menos " + NUM_PREGUNTAS_POR_PARTIDA + ".");
+        return;
+      }
+
+      // 3) Seleccionar 10 preguntas aleatorias sin repetición
+      const poolCopia = [...pool];
+      barajar(poolCopia);
+      partida = poolCopia.slice(0, NUM_PREGUNTAS_POR_PARTIDA);
+
+      // 4) Reset de contadores
+      indice = 0;
+      aciertos = 0;
+
+      // 5) Mostrar panel de juego y ocultar final
+      document.getElementById("panelFinal").style.display = "none";
+      document.getElementById("panelJuego").style.display = "block";
+
+      // 6) Lanzar primera pregunta
+      mostrarPregunta();
+    }
+
+    // ====== MOSTRAR PREGUNTA ======
+    function mostrarPregunta() {
+      // Si ya se respondieron 10, finalizamos
+      if (indice >= NUM_PREGUNTAS_POR_PARTIDA) {
+        mostrarFinal();
+        return;
+      }
+
+      const p = partida[indice];
+
+      // Estado superior
+      const temaTexto = (temaActual === "__MEZCLA__") ? "Mezcla de temas" : temaActual;
+      document.getElementById("estado").textContent =
+        "Tema: " + temaTexto + " | Pregunta " + (indice + 1) + "/" + NUM_PREGUNTAS_POR_PARTIDA + " | Aciertos: " + aciertos;
+
+      // Enunciado
+      document.getElementById("enunciado").textContent = p.pregunta;
+
+      // Feedback oculto al cambiar de pregunta
+      const fb = document.getElementById("feedback");
+      fb.style.display = "none";
+      fb.className = "feedback";
+      fb.textContent = "";
+
+      // Opciones
+      const contOpc = document.getElementById("opciones");
+      contOpc.innerHTML = "";
+
+      p.opciones.forEach((texto, idx) => {
+        const b = document.createElement("button");
+        b.className = "opcion";
+        b.textContent = texto;
+        b.onclick = () => responder(idx);
+        contOpc.appendChild(b);
+      });
+    }
+
+    // ====== RESPONDER ======
+    function responder(idxElegido) {
+      const p = partida[indice];
+      const correcta = p.correcta;
+
+      // Desactivar botones para evitar doble clic
+      const botones = document.querySelectorAll("#opciones button");
+      botones.forEach(b => b.disabled = true);
+
+      const fb = document.getElementById("feedback");
+
+      if (idxElegido === correcta) {
+        aciertos++;
+        fb.className = "feedback ok";
+        fb.textContent = "✅ Correcto.";
+      } else {
+        fb.className = "feedback ko";
+        const textoCorrecto = p.opciones[correcta];
+        // Si en el futuro añade p.explicacion, la mostramos; si no, no pasa nada.
+        const exp = p.explicacion ? (" " + p.explicacion) : "";
+        fb.textContent = "❌ Incorrecto. La respuesta correcta era: " + textoCorrecto + "." + exp;
+      }
+
+      fb.style.display = "block";
+
+      // Pasar a la siguiente pregunta tras un breve momento
+      setTimeout(() => {
+        indice++;
+        mostrarPregunta();
+      }, 700);
+    }
+
+    // ====== FINAL: NOTA + INSIGNIA + CONTINUAR ======
+    function mostrarFinal() {
+      document.getElementById("panelJuego").style.display = "none";
+
+      const panel = document.getElementById("panelFinal");
+      panel.style.display = "block";
+
+      const resultado = aciertos; // sobre 10
+      let badgeTexto = "";
+      let badgeClase = "";
+
+      // Regla exacta que usted indicó
+      if (resultado >= 6 && resultado <= 7) {
+        badgeTexto = "Aceptable";
+        badgeClase = "badge aceptable";
+      } else if (resultado >= 8 && resultado <= 9) {
+        badgeTexto = "Bueno";
+        badgeClase = "badge bueno";
+      } else if (resultado === 10) {
+        badgeTexto = "Excelente";
+        badgeClase = "badge excelente";
+      } else {
+        // Recomendación didáctica: categoría de progreso para 0–5 (evita “castigo”)
+        badgeTexto = "En progreso";
+        badgeClase = "badge progreso";
+      }
+
+      panel.innerHTML = `
+        <h2>Partida finalizada</h2>
+        <p><strong>Resultado:</strong> ${resultado}/10 aciertos</p>
+        <p><strong>Insignia:</strong> <span class="${badgeClase}">${badgeTexto}</span></p>
+        <div class="fila" style="margin-top:16px;">
+          <button onclick="iniciarPartida()">Jugar otras 10</button>
+          <button class="secundario" onclick="finalizar()">Salir</button>
+        </div>
+      `;
+    }
+
+    function finalizar() {
+      const panel = document.getElementById("panelFinal");
+      panel.innerHTML += `<p style="margin-top:12px;">Puedes cerrar la pestaña o recargar cuando quieras volver a jugar.</p>`;
     }
   </script>
 </body>
 </html>
+
+
