@@ -7,34 +7,57 @@
 
   <style>
     body { font-family: Arial, sans-serif; background:#f4f6f9; text-align:center; padding:40px; }
-    .contenedor { background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,.1); max-width:860px; margin:auto; }
-    h1 { margin: 10px 0 6px; }
+    .contenedor { background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,.1); max-width:920px; margin:auto; }
+
+    /* Título: más pequeño y azul (mismo azul que botones) */
+    h1 { margin: 12px 0 6px; font-size: 26px; color:#2c7be5; }
     .subtitulo { margin: 0 0 18px; color:#333; }
+
     .fila { margin: 14px 0; }
     select, button { padding: 10px 12px; font-size: 16px; border-radius: 6px; }
     button { border:0; background:#2c7be5; color:#fff; cursor:pointer; }
     button:hover { background:#1a5fc4; }
     button.secundario { background:#6c757d; }
     button.secundario:hover { background:#545b62; }
+
     .opcion { display:block; width:100%; margin:8px 0; }
     .estado { margin-top:12px; font-size: 14px; color:#333; }
+
     .feedback { margin-top: 12px; padding: 12px; border-radius: 8px; display:none; text-align:left; }
     .ok { background:#e8f7ee; border:1px solid #bde5c8; }
     .ko { background:#fdeaea; border:1px solid #f5bcbc; }
+
     .badge { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:bold; }
     .aceptable { background:#fff3cd; border:1px solid #ffe69c; }
     .bueno { background:#d1ecf1; border:1px solid #bee5eb; }
     .excelente { background:#d4edda; border:1px solid #c3e6cb; }
     .progreso { background:#f8d7da; border:1px solid #f5c6cb; }
+
     .bloque { text-align:left; margin-top: 14px; }
 
-    .header { display:flex; align-items:center; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom: 10px; }
-    .logo { width: 90px; height: auto; }
-    .header-text { text-align:left; max-width: 640px; }
+    /* Cabecera institucional con 2 logos */
+    .header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+    .logo {
+      width: 90px;
+      height: auto;
+    }
+    .header-text {
+      flex: 1;
+      min-width: 260px;
+      text-align:left;
+    }
     .header-text .linea1 { font-size: 18px; font-weight: bold; margin: 0; }
     .header-text .linea2 { font-size: 14px; margin: 4px 0 0; color:#333; }
     .header-text .linea3 { font-size: 14px; margin: 2px 0 0; color:#333; }
 
+    /* Pie */
     .footer {
       margin-top: 22px;
       padding-top: 14px;
@@ -51,17 +74,22 @@
 <body>
   <div class="contenedor">
 
+    <!-- CABECERA: logo UNED (izq) + texto (centro) + logo libro (dcha) -->
     <div class="header">
       <img class="logo" src="logo-uned.png" alt="Logo UNED" />
+
       <div class="header-text">
         <p class="linea1">UNED — Grado en Pedagogía</p>
         <p class="linea2">Asignatura: <strong>Medio, Recursos Didácticos y Tecnología Educativa</strong></p>
         <p class="linea3">Herramienta abierta de autoevaluación tipo test</p>
       </div>
+
+      <!-- IMPORTANTE: suba el archivo logo-libro.png al repositorio -->
+      <img class="logo" src="logo-libro.png" alt="Logo del libro base" />
     </div>
 
     <h1>Juego de Autoevaluación</h1>
-    <p class="subtitulo">Cada partida tiene <strong>10 preguntas</strong>.</p>
+    <p class="subtitulo">Cada partida tiene <strong>10 preguntas</strong>. Feedback inmediato y práctica por temáticas o exámenes.</p>
 
     <div class="fila">
       <label for="seleccion"><strong>Elige práctica:</strong></label>
@@ -87,155 +115,254 @@
 
       <p><strong>IP:</strong> Esteban Vázquez-Cano.<br>
       <strong>Desarrollador de esta herramienta mediante Vibe Coding.</strong></p>
+
+      <p><strong>Nota:</strong> Recurso abierto y gratuito para práctica formativa (no sustituye la evaluación oficial de la asignatura).</p>
     </div>
 
   </div>
 
-<script>
-const NUM_PREGUNTAS_POR_PARTIDA = 10;
+  <script>
+    // ====== CONFIGURACIÓN ======
+    const NUM_PREGUNTAS_POR_PARTIDA = 10;
 
-let bancoTemas = {};
-let bancoExamenes = {};
-let seleccionActual = "";
-let partida = [];
-let indice = 0;
-let aciertos = 0;
+    // questions.json:
+    // { "temas": {...}, "examenes": {...} }
+    let bancoTemas = {};
+    let bancoExamenes = {};
 
-function barajar(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+    // ====== ESTADO ======
+    let seleccionActual = "";
+    let partida = [];
+    let indice = 0;
+    let aciertos = 0;
 
-window.onload = function() {
-  fetch("questions.json")
-    .then(r => r.json())
-    .then(data => {
-      bancoTemas = data.temas || {};
-      bancoExamenes = data.examenes || {};
-      cargarSelector();
-    });
-};
+    // ====== UTILIDADES ======
+    function barajar(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
 
-function cargarSelector() {
-  const sel = document.getElementById("seleccion");
-  sel.innerHTML = "";
+    function unirTodasLasPreguntas(obj) {
+      let pool = [];
+      Object.values(obj || {}).forEach(arr => { pool = pool.concat(arr); });
+      return pool;
+    }
 
-  const opt0 = document.createElement("option");
-  opt0.value = "__MIX_TEMAS__";
-  opt0.textContent = "Mezcla de temas";
-  sel.appendChild(opt0);
+    // ====== CARGA ======
+    window.onload = function() {
+      fetch("questions.json")
+        .then(r => r.json())
+        .then(data => {
+          bancoTemas = data.temas || {};
+          bancoExamenes = data.examenes || {};
+          cargarSelector(bancoTemas, bancoExamenes);
+        })
+        .catch(() => {
+          alert("No se pudo cargar questions.json. Revisa que exista en la raíz del repositorio.");
+        });
+    };
 
-  const ogTemas = document.createElement("optgroup");
-  ogTemas.label = "Temas";
-  Object.keys(bancoTemas).forEach(t => {
-    const opt = document.createElement("option");
-    opt.value = "tema::" + t;
-    opt.textContent = t;
-    ogTemas.appendChild(opt);
-  });
-  sel.appendChild(ogTemas);
-}
+    function cargarSelector(temasObj, examenesObj) {
+      const sel = document.getElementById("seleccion");
+      sel.innerHTML = "";
 
-function iniciarPartida() {
-  seleccionActual = document.getElementById("seleccion").value;
+      // Mezclas
+      const opt0 = document.createElement("option");
+      opt0.value = "__MIX_TEMAS__";
+      opt0.textContent = "Mezcla de temas (aleatorio)";
+      sel.appendChild(opt0);
 
-  let pool = [];
-  if (seleccionActual === "__MIX_TEMAS__") {
-    Object.values(bancoTemas).forEach(arr => pool = pool.concat(arr));
-  } else {
-    const nombreTema = seleccionActual.split("tema::")[1];
-    pool = bancoTemas[nombreTema] || [];
-  }
+      const opt1 = document.createElement("option");
+      opt1.value = "__MIX_EXAMENES__";
+      opt1.textContent = "Mezcla de exámenes (aleatorio)";
+      sel.appendChild(opt1);
 
-  if (pool.length < NUM_PREGUNTAS_POR_PARTIDA) {
-    alert("No hay suficientes preguntas.");
-    return;
-  }
+      const opt2 = document.createElement("option");
+      opt2.value = "__MIX_TODO__";
+      opt2.textContent = "Mezcla total (temas + exámenes)";
+      sel.appendChild(opt2);
 
-  partida = barajar([...pool]).slice(0, NUM_PREGUNTAS_POR_PARTIDA);
-  indice = 0;
-  aciertos = 0;
+      // Separador
+      const sep = document.createElement("option");
+      sep.disabled = true;
+      sep.textContent = "──────────";
+      sel.appendChild(sep);
 
-  document.getElementById("panelJuego").style.display = "block";
-  mostrarPregunta();
-}
+      // Temas
+      const ogTemas = document.createElement("optgroup");
+      ogTemas.label = "Temas";
+      Object.keys(temasObj || {}).forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = "tema::" + t;
+        opt.textContent = t;
+        ogTemas.appendChild(opt);
+      });
+      sel.appendChild(ogTemas);
 
-function mostrarPregunta() {
-  if (indice >= NUM_PREGUNTAS_POR_PARTIDA) {
-    mostrarFinal();
-    return;
-  }
+      // Exámenes
+      const ogExam = document.createElement("optgroup");
+      ogExam.label = "Exámenes (curso académico)";
+      Object.keys(examenesObj || {}).forEach(curso => {
+        const opt = document.createElement("option");
+        opt.value = "examen::" + curso;
+        opt.textContent = "Examen " + curso;
+        ogExam.appendChild(opt);
+      });
+      sel.appendChild(ogExam);
+    }
 
-  const p = partida[indice];
-  document.getElementById("estado").textContent =
-    "Pregunta " + (indice + 1) + "/" + NUM_PREGUNTAS_POR_PARTIDA +
-    " | Aciertos: " + aciertos;
+    // ====== INICIO ======
+    function iniciarPartida() {
+      const sel = document.getElementById("seleccion");
+      seleccionActual = sel.value;
 
-  document.getElementById("enunciado").textContent = p.pregunta;
+      let pool = [];
 
-  const fb = document.getElementById("feedback");
-  fb.style.display = "none";
-  fb.innerHTML = "";
+      if (seleccionActual === "__MIX_TEMAS__") {
+        pool = unirTodasLasPreguntas(bancoTemas);
+      } else if (seleccionActual === "__MIX_EXAMENES__") {
+        pool = unirTodasLasPreguntas(bancoExamenes);
+      } else if (seleccionActual === "__MIX_TODO__") {
+        pool = unirTodasLasPreguntas(bancoTemas).concat(unirTodasLasPreguntas(bancoExamenes));
+      } else if (seleccionActual.startsWith("tema::")) {
+        const nombreTema = seleccionActual.split("tema::")[1];
+        pool = (bancoTemas[nombreTema] || []);
+      } else if (seleccionActual.startsWith("examen::")) {
+        const curso = seleccionActual.split("examen::")[1];
+        pool = (bancoExamenes[curso] || []);
+      }
 
-  const contOpc = document.getElementById("opciones");
-  contOpc.innerHTML = "";
+      if (pool.length < NUM_PREGUNTAS_POR_PARTIDA) {
+        alert("No hay suficientes preguntas en la opción elegida. Necesitas al menos " + NUM_PREGUNTAS_POR_PARTIDA + ".");
+        return;
+      }
 
-  p.opciones.forEach((texto, idx) => {
-    const b = document.createElement("button");
-    b.className = "opcion";
-    b.textContent = texto;
-    b.onclick = () => responder(idx);
-    contOpc.appendChild(b);
-  });
-}
+      const poolCopia = [...pool];
+      barajar(poolCopia);
+      partida = poolCopia.slice(0, NUM_PREGUNTAS_POR_PARTIDA);
 
-function responder(idxElegido) {
-  const p = partida[indice];
-  const correcta = p.correcta;
+      indice = 0;
+      aciertos = 0;
 
-  const botones = document.querySelectorAll("#opciones button");
-  botones.forEach(b => b.disabled = true);
+      document.getElementById("panelFinal").style.display = "none";
+      document.getElementById("panelJuego").style.display = "block";
 
-  const fb = document.getElementById("feedback");
+      mostrarPregunta();
+    }
 
-  if (idxElegido === correcta) {
-    aciertos++;
-    fb.className = "feedback ok";
-    fb.innerHTML = "<strong>✅ Respuesta correcta.</strong>";
-  } else {
-    fb.className = "feedback ko";
-    const textoCorrecto = p.opciones[correcta];
-    const explicacion = p.explicacion
-      ? "<br><br><em>Explicación:</em> " + p.explicacion
-      : "";
+    function etiquetaSeleccion() {
+      if (seleccionActual === "__MIX_TEMAS__") return "Mezcla de temas";
+      if (seleccionActual === "__MIX_EXAMENES__") return "Mezcla de exámenes";
+      if (seleccionActual === "__MIX_TODO__") return "Mezcla total";
+      if (seleccionActual.startsWith("tema::")) return seleccionActual.split("tema::")[1];
+      if (seleccionActual.startsWith("examen::")) return "Examen " + seleccionActual.split("examen::")[1];
+      return "Selección";
+    }
 
-    fb.innerHTML =
-      "<strong>❌ Respuesta incorrecta.</strong><br>" +
-      "La correcta es: <strong>" + textoCorrecto + "</strong>." +
-      explicacion;
-  }
+    // ====== PREGUNTAS ======
+    function mostrarPregunta() {
+      if (indice >= NUM_PREGUNTAS_POR_PARTIDA) {
+        mostrarFinal();
+        return;
+      }
 
-  fb.style.display = "block";
+      const p = partida[indice];
+      document.getElementById("estado").textContent =
+        "Modo: " + etiquetaSeleccion() + " | Pregunta " + (indice + 1) + "/" + NUM_PREGUNTAS_POR_PARTIDA + " | Aciertos: " + aciertos;
 
-  setTimeout(() => {
-    indice++;
-    mostrarPregunta();
-  }, 2000);
-}
+      document.getElementById("enunciado").textContent = p.pregunta;
 
-function mostrarFinal() {
-  document.getElementById("panelJuego").style.display = "none";
-  const panel = document.getElementById("panelFinal");
-  panel.style.display = "block";
+      const fb = document.getElementById("feedback");
+      fb.style.display = "none";
+      fb.className = "feedback";
+      fb.innerHTML = "";
 
-  panel.innerHTML =
-    "<h2>Partida finalizada</h2>" +
-    "<p>Resultado: <strong>" + aciertos + "/10</strong></p>" +
-    "<button onclick='iniciarPartida()'>Jugar otras 10</button>";
-}
-</script>
+      const contOpc = document.getElementById("opciones");
+      contOpc.innerHTML = "";
+
+      p.opciones.forEach((texto, idx) => {
+        const b = document.createElement("button");
+        b.className = "opcion";
+        b.textContent = texto;
+        b.onclick = () => responder(idx);
+        contOpc.appendChild(b);
+      });
+    }
+
+    // Explicación SOLO si falla (y visible)
+    function responder(idxElegido) {
+      const p = partida[indice];
+      const correcta = p.correcta;
+
+      const botones = document.querySelectorAll("#opciones button");
+      botones.forEach(b => b.disabled = true);
+
+      const fb = document.getElementById("feedback");
+
+      if (idxElegido === correcta) {
+        aciertos++;
+        fb.className = "feedback ok";
+        fb.innerHTML = "<strong>✅ Respuesta correcta.</strong>";
+      } else {
+        fb.className = "feedback ko";
+        const textoCorrecto = p.opciones[correcta];
+        const exp = (p.explicacion && p.explicacion.trim() !== "")
+          ? ("<br><br><em>Explicación:</em> " + p.explicacion)
+          : "";
+
+        fb.innerHTML =
+          "<strong>❌ Respuesta incorrecta.</strong><br>" +
+          "La correcta es: <strong>" + textoCorrecto + "</strong>." +
+          exp;
+      }
+
+      fb.style.display = "block";
+
+      // Más tiempo para leer la explicación cuando hay error
+      setTimeout(() => {
+        indice++;
+        mostrarPregunta();
+      }, 2000);
+    }
+
+    // ====== FINAL ======
+    function mostrarFinal() {
+      document.getElementById("panelJuego").style.display = "none";
+
+      const panel = document.getElementById("panelFinal");
+      panel.style.display = "block";
+
+      const resultado = aciertos; // sobre 10
+      let badgeTexto = "";
+      let badgeClase = "";
+
+      if (resultado >= 6 && resultado <= 7) {
+        badgeTexto = "Aceptable";
+        badgeClase = "badge aceptable";
+      } else if (resultado >= 8 && resultado <= 9) {
+        badgeTexto = "Bueno";
+        badgeClase = "badge bueno";
+      } else if (resultado === 10) {
+        badgeTexto = "Excelente";
+        badgeClase = "badge excelente";
+      } else {
+        badgeTexto = "En progreso";
+        badgeClase = "badge progreso";
+      }
+
+      panel.innerHTML = `
+        <h2>Partida finalizada</h2>
+        <p><strong>Modo:</strong> ${etiquetaSeleccion()}</p>
+        <p><strong>Resultado:</strong> ${resultado}/10 aciertos</p>
+        <p><strong>Insignia:</strong> <span class="${badgeClase}">${badgeTexto}</span></p>
+        <div class="fila" style="margin-top:16px;">
+          <button onclick="iniciarPartida()">Jugar otras 10</button>
+        </div>
+      `;
+    }
+  </script>
 </body>
 </html>
