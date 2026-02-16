@@ -70,7 +70,6 @@
 
     // ====== UTILIDADES ======
     function barajar(array) {
-      // Barajado simple (Fisher-Yates)
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -78,9 +77,7 @@
       return array;
     }
 
-    function recargar() {
-      location.reload();
-    }
+    function recargar() { location.reload(); }
 
     // ====== CARGA INICIAL DEL BANCO ======
     window.onload = function() {
@@ -99,13 +96,11 @@
       const sel = document.getElementById("tema");
       sel.innerHTML = "";
 
-      // Opción especial: mezcla de temas
       const optMix = document.createElement("option");
       optMix.value = "__MEZCLA__";
       optMix.textContent = "Mezcla de temas (aleatorio)";
       sel.appendChild(optMix);
 
-      // Temas normales
       temas.forEach(t => {
         const opt = document.createElement("option");
         opt.value = t;
@@ -119,41 +114,33 @@
       const sel = document.getElementById("tema");
       temaActual = sel.value;
 
-      // 1) Obtener el pool de preguntas según tema o mezcla
       let pool = [];
       if (temaActual === "__MEZCLA__") {
-        // Mezcla: unir todas las preguntas de todos los temas
         Object.values(bancoPorTema).forEach(arr => pool = pool.concat(arr));
       } else {
         pool = bancoPorTema[temaActual] || [];
       }
 
-      // 2) Validación mínima: ¿hay preguntas suficientes?
       if (pool.length < NUM_PREGUNTAS_POR_PARTIDA) {
         alert("En el tema seleccionado no hay suficientes preguntas. Necesitas al menos " + NUM_PREGUNTAS_POR_PARTIDA + ".");
         return;
       }
 
-      // 3) Seleccionar 10 preguntas aleatorias sin repetición
       const poolCopia = [...pool];
       barajar(poolCopia);
       partida = poolCopia.slice(0, NUM_PREGUNTAS_POR_PARTIDA);
 
-      // 4) Reset de contadores
       indice = 0;
       aciertos = 0;
 
-      // 5) Mostrar panel de juego y ocultar final
       document.getElementById("panelFinal").style.display = "none";
       document.getElementById("panelJuego").style.display = "block";
 
-      // 6) Lanzar primera pregunta
       mostrarPregunta();
     }
 
     // ====== MOSTRAR PREGUNTA ======
     function mostrarPregunta() {
-      // Si ya se respondieron 10, finalizamos
       if (indice >= NUM_PREGUNTAS_POR_PARTIDA) {
         mostrarFinal();
         return;
@@ -161,21 +148,17 @@
 
       const p = partida[indice];
 
-      // Estado superior
       const temaTexto = (temaActual === "__MEZCLA__") ? "Mezcla de temas" : temaActual;
       document.getElementById("estado").textContent =
         "Tema: " + temaTexto + " | Pregunta " + (indice + 1) + "/" + NUM_PREGUNTAS_POR_PARTIDA + " | Aciertos: " + aciertos;
 
-      // Enunciado
       document.getElementById("enunciado").textContent = p.pregunta;
 
-      // Feedback oculto al cambiar de pregunta
       const fb = document.getElementById("feedback");
       fb.style.display = "none";
       fb.className = "feedback";
       fb.textContent = "";
 
-      // Opciones
       const contOpc = document.getElementById("opciones");
       contOpc.innerHTML = "";
 
@@ -193,7 +176,6 @@
       const p = partida[indice];
       const correcta = p.correcta;
 
-      // Desactivar botones para evitar doble clic
       const botones = document.querySelectorAll("#opciones button");
       botones.forEach(b => b.disabled = true);
 
@@ -206,14 +188,12 @@
       } else {
         fb.className = "feedback ko";
         const textoCorrecto = p.opciones[correcta];
-        // Si en el futuro añade p.explicacion, la mostramos; si no, no pasa nada.
         const exp = p.explicacion ? (" " + p.explicacion) : "";
         fb.textContent = "❌ Incorrecto. La respuesta correcta era: " + textoCorrecto + "." + exp;
       }
 
       fb.style.display = "block";
 
-      // Pasar a la siguiente pregunta tras un breve momento
       setTimeout(() => {
         indice++;
         mostrarPregunta();
@@ -231,7 +211,6 @@
       let badgeTexto = "";
       let badgeClase = "";
 
-      // Regla exacta que usted indicó
       if (resultado >= 6 && resultado <= 7) {
         badgeTexto = "Aceptable";
         badgeClase = "badge aceptable";
@@ -242,7 +221,6 @@
         badgeTexto = "Excelente";
         badgeClase = "badge excelente";
       } else {
-        // Recomendación didáctica: categoría de progreso para 0–5 (evita “castigo”)
         badgeTexto = "En progreso";
         badgeClase = "badge progreso";
       }
@@ -265,6 +243,3 @@
   </script>
 </body>
 </html>
-
-
-
