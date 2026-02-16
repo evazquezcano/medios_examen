@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Autoevaluación</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .contenedor {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shad
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juego de Autoevaluación</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f9; text-align:center; padding:40px; }
+    .contenedor { background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,.1); max-width:600px; margin:auto; }
+    button { padding:12px 20px; font-size:16px; border:0; border-radius:5px; background:#2c7be5; color:#fff; cursor:pointer; }
+    button:hover { background:#1a5fc4; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Juego de Autoevaluación</h1>
+    <p>Herramienta interactiva para practicar preguntas tipo test por temáticas.</p>
+    <button onclick="iniciarJuego()">Comenzar</button>
+    <div id="mensaje" style="margin-top:20px;"></div>
+  </div>
+  <script>
+    function iniciarJuego() {
+      document.getElementById("mensaje").innerHTML =
+        "<p>En el siguiente paso incorporaremos las preguntas del banco.</p>";
+    }
+  </script>
+</body>
+</html>
