@@ -1082,7 +1082,371 @@
   }
 ]
 ,
-    "Tema 5": [],
+    "Tema 5": [
+  {
+    "pregunta": "¿Qué caracteriza a los modelos de aprendizaje abiertos y masivos?",
+    "opciones": [
+      "Acceso restringido y presencial",
+      "Acceso universal, gratuito y en línea",
+      "Evaluación exclusivamente presencial",
+      "Uso exclusivo de libros impresos"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "Se caracterizan por el acceso abierto, gratuito y masivo mediante entornos digitales."
+  },
+  {
+    "pregunta": "¿Qué significa MOOC?",
+    "opciones": [
+      "Massive Open Online Course",
+      "Modular Open Offline Course",
+      "Managed Online Open Class",
+      "Multiple Organized Online Curriculum"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "MOOC significa Massive Open Online Course (Curso Online Masivo y Abierto)."
+  },
+  {
+    "pregunta": "¿Qué universidades impulsaron la expansión inicial de los MOOC?",
+    "opciones": [
+      "Oxford y Cambridge",
+      "Harvard, Stanford y MIT",
+      "UNED y UOC",
+      "Sorbonne y Bolonia"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "Harvard, Stanford y el MIT fueron referentes en su expansión inicial."
+  },
+  {
+    "pregunta": "¿Qué concepto permite al estudiante gestionar su propio aprendizaje?",
+    "opciones": [
+      "LMS cerrado",
+      "PLE",
+      "ERP académico",
+      "CMS administrativo"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "El Entorno Personal de Aprendizaje (PLE) permite al estudiante gestionar objetivos, contenidos y comunicación."
+  },
+  {
+    "pregunta": "¿Qué principio pedagógico fundamenta los MOOC?",
+    "opciones": [
+      "Conductismo clásico",
+      "Conectivismo",
+      "Memorización repetitiva",
+      "Instrucción directa"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "Los MOOC se fundamentan teóricamente en el conectivismo (Siemens)."
+  },
+  {
+    "pregunta": "¿Qué característica define el acceso abierto en la formación masiva?",
+    "opciones": [
+      "Requiere matrícula formal",
+      "No exige pago ni pertenencia institucional",
+      "Solo para estudiantes universitarios",
+      "Exclusivo para docentes"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "El acceso abierto implica gratuidad y ausencia de requisitos formales de matrícula."
+  },
+  {
+    "pregunta": "¿Qué red social lidera el ranking de uso según el estudio IAB citado?",
+    "opciones": [
+      "Instagram",
+      "WhatsApp",
+      "LinkedIn",
+      "TikTok"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "WhatsApp lidera el ranking de uso entre internautas."
+  },
+  {
+    "pregunta": "¿Qué herramienta permite crear marcadores sociales educativos?",
+    "opciones": [
+      "Delicious",
+      "Photoshop",
+      "Excel",
+      "SPSS"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "Delicious es una herramienta de marcadores sociales."
+  },
+  {
+    "pregunta": "¿Qué tipo de MOOC se basa en la interacción conectivista?",
+    "opciones": [
+      "xMOOC",
+      "cMOOC",
+      "SPOC",
+      "COOC"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "El cMOOC se fundamenta en la interacción y el trabajo colaborativo."
+  },
+  {
+    "pregunta": "¿Qué recurso permite monitorizar menciones en redes sociales?",
+    "opciones": [
+      "Social Mention",
+      "Word",
+      "PowerPoint",
+      "Canva"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "Social Mention permite monitorizar menciones en medios sociales."
+  },
+
+  {
+    "pregunta": "¿Qué diferencia principal existe entre xMOOC y cMOOC?",
+    "opciones": [
+      "Los xMOOC eliminan contenidos",
+      "Los cMOOC priorizan la interacción colaborativa",
+      "Los xMOOC son presenciales",
+      "Los cMOOC son privados"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Los cMOOC priorizan la construcción colaborativa frente al modelo más estructurado de los xMOOC."
+  },
+  {
+    "pregunta": "¿Qué principio caracteriza la escalabilidad en los MOOC?",
+    "opciones": [
+      "Interacción individualizada obligatoria",
+      "Participación masiva con mínima intervención docente",
+      "Evaluación exclusivamente oral",
+      "Tutorías personalizadas permanentes"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "La escalabilidad permite que el curso funcione con gran número de participantes."
+  },
+  {
+    "pregunta": "¿Qué función cumplen las analíticas de aprendizaje?",
+    "opciones": [
+      "Control administrativo",
+      "Mejorar rendimiento y orientar decisiones didácticas",
+      "Reducir participación",
+      "Eliminar evaluación"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Permiten analizar actividad para mejorar procesos formativos."
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un SPOC?",
+    "opciones": [
+      "Curso masivo abierto",
+      "Curso privado para grupo reducido",
+      "Curso exclusivamente corporativo",
+      "Curso sin evaluación"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "SPOC significa Small Private Online Course."
+  },
+  {
+    "pregunta": "¿Qué finalidad tienen los OER?",
+    "opciones": [
+      "Restricción del contenido",
+      "Uso, reutilización y redistribución abierta",
+      "Venta exclusiva",
+      "Licencia cerrada obligatoria"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Los Recursos Educativos Abiertos permiten acceso y reutilización bajo licencia abierta."
+  },
+  {
+    "pregunta": "¿Qué ventaja principal ofrecen los entornos híbridos?",
+    "opciones": [
+      "Eliminan presencialidad",
+      "Combinan lo mejor del entorno presencial y online",
+      "Reducen interacción",
+      "Sustituyen currículo"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Integran presencialidad y virtualidad de forma complementaria."
+  },
+  {
+    "pregunta": "¿Qué reto presentan los MOOC según los datos del MIT?",
+    "opciones": [
+      "Exceso de presencialidad",
+      "Alto índice de abandono",
+      "Falta de matrícula",
+      "Carencia tecnológica"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Los MOOC presentan elevados índices de abandono."
+  },
+  {
+    "pregunta": "¿Qué promueve un PLE eficaz?",
+    "opciones": [
+      "Dependencia institucional",
+      "Autonomía y metacognición",
+      "Uniformidad obligatoria",
+      "Aislamiento social"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Favorece autonomía, autorregulación y reflexión sobre el aprendizaje."
+  },
+  {
+    "pregunta": "¿Qué riesgo exige regulación en redes sociales educativas?",
+    "opciones": [
+      "Gamificación",
+      "Ciberacoso",
+      "Evaluación formativa",
+      "Aprendizaje colaborativo"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Se requiere regulación para prevenir el ciberacoso."
+  },
+  {
+    "pregunta": "¿Qué exige la integración didáctica de redes sociales?",
+    "opciones": [
+      "Uso espontáneo",
+      "Planificación pedagógica coherente",
+      "Eliminación normas",
+      "Exclusión docente"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Debe responder a fines educativos y planificación didáctica."
+  },
+
+  {
+    "pregunta": "¿Qué principio redefine la arquitectura del conocimiento en formación masiva?",
+    "opciones": [
+      "Secuencia lineal",
+      "Arquitectura en red",
+      "Memorización cerrada",
+      "Jerarquía rígida"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "La formación masiva se basa en arquitectura en red, no lineal."
+  },
+  {
+    "pregunta": "¿Qué tensión existe entre MOOC y EEES?",
+    "opciones": [
+      "Exceso de evaluación competencial",
+      "Predominio memorístico frente a competencias",
+      "Demasiada presencialidad",
+      "Falta de gratuidad"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Se cuestiona su alineación con el enfoque competencial del EEES."
+  },
+  {
+    "pregunta": "¿Qué exige la monetización de MOOC?",
+    "opciones": [
+      "Eliminación certificación",
+      "Modelos como badges y certificaciones de pago",
+      "Cierre institucional",
+      "Financiación pública exclusiva"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Se monetizan mediante certificaciones, tutorías o explotación de datos."
+  },
+  {
+    "pregunta": "¿Qué dimensión transforma Twitter en educación superior?",
+    "opciones": [
+      "Comunicación unidireccional",
+      "Interacción reflexiva y colaborativa",
+      "Evaluación memorística",
+      "Red cerrada"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Twitter favorece aprendizaje informal y colaboración académica."
+  },
+  {
+    "pregunta": "¿Qué exige la implementación institucional de OER?",
+    "opciones": [
+      "Política de copyright rígida",
+      "Estrategias institucionales y apoyo docente",
+      "Prohibición reutilización",
+      "Uso exclusivo online"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Requiere políticas institucionales activas y formación docente."
+  },
+  {
+    "pregunta": "¿Qué implica la monitorización en proyectos digitales?",
+    "opciones": [
+      "Control jerárquico",
+      "Escuchar y analizar para mejorar el diseño pedagógico",
+      "Eliminar participación",
+      "Supervisión técnica exclusiva"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "La monitorización implica análisis continuo para mejora formativa."
+  },
+  {
+    "pregunta": "¿Qué papel desempeñan las redes sociales en aprendizaje formal?",
+    "opciones": [
+      "Sustituyen currículo",
+      "Complementan y amplían interacción",
+      "Eliminan evaluación",
+      "Reducen colaboración"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Funcionan como complemento dinámico e interactivo."
+  },
+  {
+    "pregunta": "¿Qué riesgo metodológico presentan algunos MOOC?",
+    "opciones": [
+      "Exceso colaborativo",
+      "Segmentación audiovisual y evaluación mecánica",
+      "Demasiada creatividad",
+      "Interacción excesiva"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Se critica su evaluación basada en ensayo-error y diseño poco competencial."
+  },
+  {
+    "pregunta": "¿Qué dimensión fortalece un PLE bien diseñado?",
+    "opciones": [
+      "Centralización institucional",
+      "Aprendizaje formal, informal y no formal integrado",
+      "Uniformidad evaluativa",
+      "Desconexión social"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Integra distintos tipos de aprendizaje en un ecosistema personal."
+  },
+  {
+    "pregunta": "¿Qué potencial emergente presenta TikTok en educación?",
+    "opciones": [
+      "Uso exclusivamente recreativo",
+      "Difusión breve de contenidos educativos para jóvenes",
+      "Evaluación formal obligatoria",
+      "Sustitución universitaria"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Empieza a utilizarse para microcontenidos educativos dirigidos a público joven."
+  }
+]
+,
     "Tema 6": [],
     "Tema 7": []
   },
