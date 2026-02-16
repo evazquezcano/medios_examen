@@ -142,7 +142,7 @@
     }
     .footer strong { color:#222; }
 
-    /* Bloque inferior derecho: RADTE + MAPE-TIC */
+    /* Bloque inferior derecho: RADTE + MAPE-TIC (pequeños, en una sola línea) */
     .grupos {
       position: absolute;
       right: 0;
@@ -154,23 +154,22 @@
       text-align: center;
     }
 
-    /* Ancho suficiente para que "MAPE-TIC" no se parta */
+    /* IMPORTANTE: ancho suficiente para que "MAPE-TIC" no se parta */
     .grupo { width: 60px; }
 
-    /* Iconos pequeños */
     .grupo img {
-      width: 33px;
+      width: 33px;      /* imagen pequeña (la mitad aprox.) */
       height: auto;
       display: block;
       margin: 0 auto 3px;
     }
 
-    /* Texto debajo en 7px y sin salto */
+    /* Texto debajo en 7px y sin salto de línea */
     .grupo .caption {
-      font-size: 7px;
+      font-size: 7px;          /* cambio solicitado */
       color: #444;
       line-height: 1.1;
-      white-space: nowrap;
+      white-space: nowrap;     /* evita saltos en MAPE-TIC */
     }
 
     .grupo .caption a{
@@ -349,15 +348,6 @@
       sel.appendChild(ogExam);
     }
 
-    function etiquetaSeleccion() {
-      if (seleccionActual === "__MIX_TEMAS__") return "Mezcla de temas";
-      if (seleccionActual === "__MIX_EXAMENES__") return "Mezcla de exámenes";
-      if (seleccionActual === "__MIX_TODO__") return "Mezcla total";
-      if (seleccionActual.startsWith("tema::")) return seleccionActual.split("tema::")[1];
-      if (seleccionActual.startsWith("examen::")) return "Examen " + seleccionActual.split("examen::")[1];
-      return "Selección";
-    }
-
     function iniciarPartida() {
       const sel = document.getElementById("seleccion");
       seleccionActual = sel.value;
@@ -395,6 +385,15 @@
       document.getElementById("panelJuego").style.display = "block";
 
       mostrarPregunta();
+    }
+
+    function etiquetaSeleccion() {
+      if (seleccionActual === "__MIX_TEMAS__") return "Mezcla de temas";
+      if (seleccionActual === "__MIX_EXAMENES__") return "Mezcla de exámenes";
+      if (seleccionActual === "__MIX_TODO__") return "Mezcla total";
+      if (seleccionActual.startsWith("tema::")) return seleccionActual.split("tema::")[1];
+      if (seleccionActual.startsWith("examen::")) return "Examen " + seleccionActual.split("examen::")[1];
+      return "Selección";
     }
 
     function mostrarPregunta() {
