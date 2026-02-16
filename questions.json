@@ -1093,7 +1093,7 @@
     ],
     "correcta": 1,
     "nivel": "basico",
-    "explicacion": "Se caracterizan por el acceso abierto, gratuito y masivo mediante entornos digitales."
+    "explicacion": "Los modelos abiertos y masivos se caracterizan por el acceso en línea, abierto y generalmente gratuito."
   },
   {
     "pregunta": "¿Qué significa MOOC?",
@@ -1108,19 +1108,19 @@
     "explicacion": "MOOC significa Massive Open Online Course (Curso Online Masivo y Abierto)."
   },
   {
-    "pregunta": "¿Qué universidades impulsaron la expansión inicial de los MOOC?",
+    "pregunta": "¿Qué enfoque pedagógico fundamenta los primeros MOOC conectivistas?",
     "opciones": [
-      "Oxford y Cambridge",
-      "Harvard, Stanford y MIT",
-      "UNED y UOC",
-      "Sorbonne y Bolonia"
+      "Conductismo",
+      "Conectivismo",
+      "Instrucción directa",
+      "Memorización repetitiva"
     ],
     "correcta": 1,
     "nivel": "basico",
-    "explicacion": "Harvard, Stanford y el MIT fueron referentes en su expansión inicial."
+    "explicacion": "Los primeros MOOC se fundamentaron en el conectivismo, centrado en redes y aprendizaje distribuido."
   },
   {
-    "pregunta": "¿Qué concepto permite al estudiante gestionar su propio aprendizaje?",
+    "pregunta": "¿Qué concepto permite al estudiante gestionar recursos, herramientas y contactos de aprendizaje?",
     "opciones": [
       "LMS cerrado",
       "PLE",
@@ -1129,325 +1129,687 @@
     ],
     "correcta": 1,
     "nivel": "basico",
-    "explicacion": "El Entorno Personal de Aprendizaje (PLE) permite al estudiante gestionar objetivos, contenidos y comunicación."
+    "explicacion": "El Entorno Personal de Aprendizaje (PLE) permite al estudiante organizar su propio ecosistema formativo."
   },
   {
-    "pregunta": "¿Qué principio pedagógico fundamenta los MOOC?",
+    "pregunta": "¿Qué tipo de MOOC prioriza la estructura y contenidos cerrados?",
     "opciones": [
-      "Conductismo clásico",
-      "Conectivismo",
-      "Memorización repetitiva",
-      "Instrucción directa"
-    ],
-    "correcta": 1,
-    "nivel": "basico",
-    "explicacion": "Los MOOC se fundamentan teóricamente en el conectivismo (Siemens)."
-  },
-  {
-    "pregunta": "¿Qué característica define el acceso abierto en la formación masiva?",
-    "opciones": [
-      "Requiere matrícula formal",
-      "No exige pago ni pertenencia institucional",
-      "Solo para estudiantes universitarios",
-      "Exclusivo para docentes"
-    ],
-    "correcta": 1,
-    "nivel": "basico",
-    "explicacion": "El acceso abierto implica gratuidad y ausencia de requisitos formales de matrícula."
-  },
-  {
-    "pregunta": "¿Qué red social lidera el ranking de uso según el estudio IAB citado?",
-    "opciones": [
-      "Instagram",
-      "WhatsApp",
-      "LinkedIn",
-      "TikTok"
-    ],
-    "correcta": 1,
-    "nivel": "basico",
-    "explicacion": "WhatsApp lidera el ranking de uso entre internautas."
-  },
-  {
-    "pregunta": "¿Qué herramienta permite crear marcadores sociales educativos?",
-    "opciones": [
-      "Delicious",
-      "Photoshop",
-      "Excel",
-      "SPSS"
-    ],
-    "correcta": 0,
-    "nivel": "basico",
-    "explicacion": "Delicious es una herramienta de marcadores sociales."
-  },
-  {
-    "pregunta": "¿Qué tipo de MOOC se basa en la interacción conectivista?",
-    "opciones": [
-      "xMOOC",
       "cMOOC",
+      "xMOOC",
       "SPOC",
       "COOC"
     ],
     "correcta": 1,
     "nivel": "basico",
-    "explicacion": "El cMOOC se fundamenta en la interacción y el trabajo colaborativo."
+    "explicacion": "Los xMOOC siguen una estructura más tradicional basada en contenidos y evaluación automatizada."
   },
   {
-    "pregunta": "¿Qué recurso permite monitorizar menciones en redes sociales?",
+    "pregunta": "¿Qué significa SPOC?",
     "opciones": [
-      "Social Mention",
-      "Word",
-      "PowerPoint",
-      "Canva"
+      "Small Private Online Course",
+      "Specialized Public Open Course",
+      "Structured Program Online Course",
+      "Shared Personal Open Course"
     ],
     "correcta": 0,
     "nivel": "basico",
-    "explicacion": "Social Mention permite monitorizar menciones en medios sociales."
-  },
-
-  {
-    "pregunta": "¿Qué diferencia principal existe entre xMOOC y cMOOC?",
-    "opciones": [
-      "Los xMOOC eliminan contenidos",
-      "Los cMOOC priorizan la interacción colaborativa",
-      "Los xMOOC son presenciales",
-      "Los cMOOC son privados"
-    ],
-    "correcta": 1,
-    "nivel": "medio",
-    "explicacion": "Los cMOOC priorizan la construcción colaborativa frente al modelo más estructurado de los xMOOC."
+    "explicacion": "SPOC significa Small Private Online Course, curso online privado para grupo reducido."
   },
   {
-    "pregunta": "¿Qué principio caracteriza la escalabilidad en los MOOC?",
+    "pregunta": "¿Qué permiten los Recursos Educativos Abiertos (OER)?",
     "opciones": [
-      "Interacción individualizada obligatoria",
-      "Participación masiva con mínima intervención docente",
-      "Evaluación exclusivamente oral",
-      "Tutorías personalizadas permanentes"
+      "Uso restringido por copyright cerrado",
+      "Acceso, reutilización y redistribución abierta",
+      "Venta exclusiva institucional",
+      "Acceso solo universitario"
     ],
     "correcta": 1,
-    "nivel": "medio",
-    "explicacion": "La escalabilidad permite que el curso funcione con gran número de participantes."
+    "nivel": "basico",
+    "explicacion": "Los OER permiten uso, adaptación y redistribución bajo licencias abiertas."
   },
   {
-    "pregunta": "¿Qué función cumplen las analíticas de aprendizaje?",
+    "pregunta": "¿Qué función cumplen las redes sociales en educación?",
     "opciones": [
-      "Control administrativo",
-      "Mejorar rendimiento y orientar decisiones didácticas",
-      "Reducir participación",
-      "Eliminar evaluación"
+      "Sustituir el currículo",
+      "Complementar y ampliar la interacción",
+      "Eliminar evaluación",
+      "Reducir participación"
     ],
     "correcta": 1,
-    "nivel": "medio",
-    "explicacion": "Permiten analizar actividad para mejorar procesos formativos."
-  },
-  {
-    "pregunta": "¿Qué caracteriza a un SPOC?",
-    "opciones": [
-      "Curso masivo abierto",
-      "Curso privado para grupo reducido",
-      "Curso exclusivamente corporativo",
-      "Curso sin evaluación"
-    ],
-    "correcta": 1,
-    "nivel": "medio",
-    "explicacion": "SPOC significa Small Private Online Course."
-  },
-  {
-    "pregunta": "¿Qué finalidad tienen los OER?",
-    "opciones": [
-      "Restricción del contenido",
-      "Uso, reutilización y redistribución abierta",
-      "Venta exclusiva",
-      "Licencia cerrada obligatoria"
-    ],
-    "correcta": 1,
-    "nivel": "medio",
-    "explicacion": "Los Recursos Educativos Abiertos permiten acceso y reutilización bajo licencia abierta."
+    "nivel": "basico",
+    "explicacion": "Las redes sociales pueden ampliar la interacción y el aprendizaje colaborativo."
   },
   {
     "pregunta": "¿Qué ventaja principal ofrecen los entornos híbridos?",
     "opciones": [
       "Eliminan presencialidad",
-      "Combinan lo mejor del entorno presencial y online",
-      "Reducen interacción",
-      "Sustituyen currículo"
+      "Combinan presencialidad y virtualidad",
+      "Reducen interacción docente",
+      "Sustituyen evaluación formativa"
     ],
     "correcta": 1,
-    "nivel": "medio",
-    "explicacion": "Integran presencialidad y virtualidad de forma complementaria."
+    "nivel": "basico",
+    "explicacion": "El aprendizaje híbrido combina actividades presenciales y online."
   },
   {
-    "pregunta": "¿Qué reto presentan los MOOC según los datos del MIT?",
+    "pregunta": "¿Qué reto frecuente presentan los MOOC?",
     "opciones": [
       "Exceso de presencialidad",
-      "Alto índice de abandono",
-      "Falta de matrícula",
-      "Carencia tecnológica"
+      "Altos índices de abandono",
+      "Falta de contenidos",
+      "Escasez tecnológica"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "Diversos estudios muestran altos índices de abandono en MOOC."
+  },
+
+  {
+    "pregunta": "¿Qué diferencia principal existe entre xMOOC y cMOOC?",
+    "opciones": [
+      "Los xMOOC eliminan evaluación",
+      "Los cMOOC priorizan interacción y construcción colaborativa",
+      "Los xMOOC son presenciales",
+      "Los cMOOC son privados"
     ],
     "correcta": 1,
     "nivel": "medio",
-    "explicacion": "Los MOOC presentan elevados índices de abandono."
+    "explicacion": "Los cMOOC priorizan la interacción en red y la construcción colaborativa del conocimiento."
   },
   {
     "pregunta": "¿Qué promueve un PLE eficaz?",
     "opciones": [
       "Dependencia institucional",
-      "Autonomía y metacognición",
-      "Uniformidad obligatoria",
+      "Autonomía y autorregulación",
+      "Uniformidad evaluativa",
       "Aislamiento social"
     ],
     "correcta": 1,
     "nivel": "medio",
-    "explicacion": "Favorece autonomía, autorregulación y reflexión sobre el aprendizaje."
+    "explicacion": "Un PLE favorece autonomía, metacognición y gestión personal del aprendizaje."
   },
   {
-    "pregunta": "¿Qué riesgo exige regulación en redes sociales educativas?",
+    "pregunta": "¿Qué función cumplen las analíticas de aprendizaje en entornos online?",
     "opciones": [
-      "Gamificación",
-      "Ciberacoso",
-      "Evaluación formativa",
-      "Aprendizaje colaborativo"
+      "Eliminar evaluación",
+      "Analizar datos para mejorar procesos formativos",
+      "Reducir interacción",
+      "Automatizar docencia completamente"
     ],
     "correcta": 1,
     "nivel": "medio",
-    "explicacion": "Se requiere regulación para prevenir el ciberacoso."
+    "explicacion": "Permiten analizar datos de actividad para orientar decisiones pedagógicas."
   },
   {
     "pregunta": "¿Qué exige la integración didáctica de redes sociales?",
     "opciones": [
-      "Uso espontáneo",
+      "Uso espontáneo sin planificación",
       "Planificación pedagógica coherente",
       "Eliminación normas",
       "Exclusión docente"
     ],
     "correcta": 1,
     "nivel": "medio",
-    "explicacion": "Debe responder a fines educativos y planificación didáctica."
+    "explicacion": "Su uso debe responder a objetivos formativos y planificación didáctica."
+  },
+  {
+    "pregunta": "¿Qué ventaja ofrece el microaprendizaje en entornos digitales?",
+    "opciones": [
+      "Clases extensas",
+      "Unidades breves y focalizadas",
+      "Eliminación contenidos",
+      "Memorización lineal"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "El microaprendizaje organiza contenidos en cápsulas breves y específicas."
+  },
+  {
+    "pregunta": "¿Qué implica la escalabilidad en formación masiva?",
+    "opciones": [
+      "Interacción individual constante",
+      "Participación masiva con mínima intervención directa",
+      "Evaluación exclusivamente oral",
+      "Tutorías personalizadas permanentes"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "La escalabilidad permite atender grandes volúmenes de estudiantes."
+  },
+  {
+    "pregunta": "¿Qué riesgo requiere regulación en redes sociales educativas?",
+    "opciones": [
+      "Gamificación",
+      "Ciberacoso",
+      "Aprendizaje colaborativo",
+      "Evaluación formativa"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Es necesario prevenir fenómenos como el ciberacoso."
+  },
+  {
+    "pregunta": "¿Qué ventaja presentan los OER para el profesorado?",
+    "opciones": [
+      "Restricción de uso",
+      "Reutilización y adaptación de materiales",
+      "Licencia cerrada obligatoria",
+      "Uso exclusivamente presencial"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Permiten adaptar materiales a diferentes contextos educativos."
+  },
+  {
+    "pregunta": "¿Qué dimensión fortalece un entorno híbrido bien diseñado?",
+    "opciones": [
+      "Rigidez curricular",
+      "Flexibilidad y personalización",
+      "Eliminación interacción",
+      "Centralización exclusiva"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Favorece flexibilidad y adaptación a distintos ritmos."
+  },
+  {
+    "pregunta": "¿Qué exige la monitorización de proyectos digitales?",
+    "opciones": [
+      "Control jerárquico rígido",
+      "Análisis continuo para mejora formativa",
+      "Eliminación participación",
+      "Evaluación única final"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "La monitorización implica seguimiento continuo y mejora basada en datos."
   },
 
   {
-    "pregunta": "¿Qué principio redefine la arquitectura del conocimiento en formación masiva?",
+    "pregunta": "¿Qué tensión puede existir entre MOOC y enfoque competencial del EEES?",
     "opciones": [
-      "Secuencia lineal",
-      "Arquitectura en red",
-      "Memorización cerrada",
-      "Jerarquía rígida"
+      "Exceso de presencialidad",
+      "Predominio de evaluación automatizada frente a competencias complejas",
+      "Falta de contenidos",
+      "Escasez tecnológica"
     ],
     "correcta": 1,
     "nivel": "avanzado",
-    "explicacion": "La formación masiva se basa en arquitectura en red, no lineal."
+    "explicacion": "Se cuestiona su alineación con evaluación competencial profunda."
   },
   {
-    "pregunta": "¿Qué tensión existe entre MOOC y EEES?",
+    "pregunta": "¿Qué redefine la arquitectura del conocimiento en entornos abiertos?",
     "opciones": [
-      "Exceso de evaluación competencial",
-      "Predominio memorístico frente a competencias",
-      "Demasiada presencialidad",
-      "Falta de gratuidad"
+      "Secuencia lineal cerrada",
+      "Estructura en red",
+      "Jerarquía rígida",
+      "Memorización secuencial"
     ],
     "correcta": 1,
     "nivel": "avanzado",
-    "explicacion": "Se cuestiona su alineación con el enfoque competencial del EEES."
+    "explicacion": "El conocimiento se organiza en red, no de forma lineal."
   },
   {
-    "pregunta": "¿Qué exige la monetización de MOOC?",
+    "pregunta": "¿Qué implica la monetización de MOOC?",
     "opciones": [
       "Eliminación certificación",
-      "Modelos como badges y certificaciones de pago",
-      "Cierre institucional",
-      "Financiación pública exclusiva"
+      "Certificaciones y servicios de pago",
+      "Financiación exclusivamente pública",
+      "Cierre institucional"
     ],
     "correcta": 1,
     "nivel": "avanzado",
-    "explicacion": "Se monetizan mediante certificaciones, tutorías o explotación de datos."
+    "explicacion": "Se monetizan mediante certificaciones, tutorías o servicios añadidos."
   },
   {
-    "pregunta": "¿Qué dimensión transforma Twitter en educación superior?",
-    "opciones": [
-      "Comunicación unidireccional",
-      "Interacción reflexiva y colaborativa",
-      "Evaluación memorística",
-      "Red cerrada"
-    ],
-    "correcta": 1,
-    "nivel": "avanzado",
-    "explicacion": "Twitter favorece aprendizaje informal y colaboración académica."
-  },
-  {
-    "pregunta": "¿Qué exige la implementación institucional de OER?",
-    "opciones": [
-      "Política de copyright rígida",
-      "Estrategias institucionales y apoyo docente",
-      "Prohibición reutilización",
-      "Uso exclusivo online"
-    ],
-    "correcta": 1,
-    "nivel": "avanzado",
-    "explicacion": "Requiere políticas institucionales activas y formación docente."
-  },
-  {
-    "pregunta": "¿Qué implica la monitorización en proyectos digitales?",
-    "opciones": [
-      "Control jerárquico",
-      "Escuchar y analizar para mejorar el diseño pedagógico",
-      "Eliminar participación",
-      "Supervisión técnica exclusiva"
-    ],
-    "correcta": 1,
-    "nivel": "avanzado",
-    "explicacion": "La monitorización implica análisis continuo para mejora formativa."
-  },
-  {
-    "pregunta": "¿Qué papel desempeñan las redes sociales en aprendizaje formal?",
-    "opciones": [
-      "Sustituyen currículo",
-      "Complementan y amplían interacción",
-      "Eliminan evaluación",
-      "Reducen colaboración"
-    ],
-    "correcta": 1,
-    "nivel": "avanzado",
-    "explicacion": "Funcionan como complemento dinámico e interactivo."
-  },
-  {
-    "pregunta": "¿Qué riesgo metodológico presentan algunos MOOC?",
-    "opciones": [
-      "Exceso colaborativo",
-      "Segmentación audiovisual y evaluación mecánica",
-      "Demasiada creatividad",
-      "Interacción excesiva"
-    ],
-    "correcta": 1,
-    "nivel": "avanzado",
-    "explicacion": "Se critica su evaluación basada en ensayo-error y diseño poco competencial."
-  },
-  {
-    "pregunta": "¿Qué dimensión fortalece un PLE bien diseñado?",
+    "pregunta": "¿Qué dimensión fortalece un PLE avanzado?",
     "opciones": [
       "Centralización institucional",
-      "Aprendizaje formal, informal y no formal integrado",
+      "Integración de aprendizaje formal, informal y no formal",
       "Uniformidad evaluativa",
       "Desconexión social"
     ],
     "correcta": 1,
     "nivel": "avanzado",
-    "explicacion": "Integra distintos tipos de aprendizaje en un ecosistema personal."
+    "explicacion": "Integra múltiples espacios y modalidades de aprendizaje."
   },
   {
-    "pregunta": "¿Qué potencial emergente presenta TikTok en educación?",
+    "pregunta": "¿Qué papel desempeñan las redes sociales académicas?",
     "opciones": [
-      "Uso exclusivamente recreativo",
-      "Difusión breve de contenidos educativos para jóvenes",
-      "Evaluación formal obligatoria",
-      "Sustitución universitaria"
+      "Sustituir el currículo",
+      "Favorecer interacción reflexiva y colaboración",
+      "Eliminar evaluación",
+      "Reducir comunicación"
     ],
     "correcta": 1,
     "nivel": "avanzado",
-    "explicacion": "Empieza a utilizarse para microcontenidos educativos dirigidos a público joven."
+    "explicacion": "Permiten interacción académica y construcción compartida de conocimiento."
+  },
+  {
+    "pregunta": "¿Qué exige la implementación institucional de OER?",
+    "opciones": [
+      "Política restrictiva",
+      "Estrategia institucional y formación docente",
+      "Uso cerrado",
+      "Exclusión tecnológica"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Requiere políticas activas y apoyo institucional."
+  },
+  {
+    "pregunta": "¿Qué riesgo metodológico presentan algunos MOOC?",
+    "opciones": [
+      "Exceso colaborativo",
+      "Evaluación mecánica y fragmentación audiovisual",
+      "Demasiada creatividad",
+      "Interacción excesiva"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Se critica su evaluación automática poco competencial."
+  },
+  {
+    "pregunta": "¿Qué papel cumplen las analíticas en entornos abiertos?",
+    "opciones": [
+      "Eliminar seguimiento docente",
+      "Optimizar decisiones pedagógicas basadas en datos",
+      "Reducir interacción",
+      "Automatizar creatividad"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Permiten fundamentar decisiones pedagógicas en datos."
+  },
+  {
+    "pregunta": "¿Qué condición garantiza valor educativo en redes sociales?",
+    "opciones": [
+      "Popularidad",
+      "Planificación didáctica coherente",
+      "Uso recreativo",
+      "Cantidad seguidores"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Debe existir coherencia con objetivos y evaluación."
+  },
+  {
+    "pregunta": "¿Qué transforma el aprendizaje abierto en educación superior?",
+    "opciones": [
+      "Modelo jerárquico cerrado",
+      "Cultura de conocimiento compartido y distribuido",
+      "Exclusividad institucional",
+      "Reducción colaboración"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Impulsa cultura colaborativa y conocimiento distribuido."
   }
-]
-,
-    "Tema 6": [],
+],
+    "Tema 6": [
+  {
+    "pregunta": "¿Qué tecnologías integra la Realidad Mixta (RM)?",
+    "opciones": [
+      "Realidad aumentada, realidad virtual y entornos mixtos",
+      "Gamificación y analíticas exclusivamente",
+      "Redes sociales y MOOCs",
+      "Programación textual avanzada"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "La Realidad Mixta integra realidad aumentada, realidad virtual y entornos mixtos combinando mundo físico y digital."
+  },
+  {
+    "pregunta": "¿Qué permite la realidad aumentada en educación?",
+    "opciones": [
+      "Sustituir el entorno físico completamente",
+      "Superponer elementos virtuales sobre el entorno real",
+      "Eliminar la interacción visual",
+      "Trabajar sin dispositivos"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "La realidad aumentada añade información digital al entorno físico sin sustituirlo."
+  },
+  {
+    "pregunta": "¿Qué elemento es esencial en la gamificación educativa?",
+    "opciones": [
+      "Retroalimentación y percepción de progreso",
+      "Memorización repetitiva",
+      "Examen final único",
+      "Eliminación de evaluación"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "La gamificación requiere feedback constante, progreso visible y finalización."
+  },
+  {
+    "pregunta": "¿Qué es un serious game?",
+    "opciones": [
+      "Juego exclusivamente recreativo",
+      "Juego digital con finalidad educativa",
+      "Examen automatizado",
+      "Simulador sin objetivos"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "Los serious games se diseñan con objetivos formativos más allá del entretenimiento."
+  },
+  {
+    "pregunta": "¿Qué herramienta permite programar por bloques visuales?",
+    "opciones": [
+      "Scratch",
+      "SPSS",
+      "Augment",
+      "Photoshop"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "Scratch utiliza programación visual por bloques desarrollada por el MIT."
+  },
+  {
+    "pregunta": "¿Qué permiten las analíticas de aprendizaje?",
+    "opciones": [
+      "Eliminar la evaluación docente",
+      "Predecir abandono y personalizar el aprendizaje",
+      "Reducir interacción",
+      "Automatizar completamente la enseñanza"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "Permiten analizar datos educativos para detectar patrones y personalizar procesos."
+  },
+  {
+    "pregunta": "¿Qué caracteriza a los chatbots educativos?",
+    "opciones": [
+      "Interacción conversacional persona-máquina",
+      "Evaluación exclusivamente manual",
+      "Sustitución del profesorado",
+      "Funcionamiento sin datos"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "Los chatbots interactúan mediante conversación automatizada."
+  },
+  {
+    "pregunta": "¿Qué beneficio aporta la programación en edades tempranas?",
+    "opciones": [
+      "Reduce creatividad",
+      "Desarrolla habilidades cognitivas y socioemocionales",
+      "Limita pensamiento crítico",
+      "Aumenta dependencia tecnológica"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "La programación fomenta creatividad, lógica y habilidades socioemocionales."
+  },
+  {
+    "pregunta": "¿Qué técnica pertenece a la minería de datos educativa?",
+    "opciones": [
+      "Árboles de decisión",
+      "Impresión 3D",
+      "Fotogrametría",
+      "Caligrafía digital"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "Los árboles de decisión se emplean para clasificar y predecir resultados."
+  },
+  {
+    "pregunta": "¿Qué función pueden desempeñar los chatbots administrativos?",
+    "opciones": [
+      "Gestión de recordatorios y calendario",
+      "Diseño curricular",
+      "Investigación científica",
+      "Evaluación manual"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "Pueden gestionar tareas como recordatorios y organización académica."
+  },
+
+  {
+    "pregunta": "¿Qué efecto tiene la realidad mixta en el aprendizaje?",
+    "opciones": [
+      "Reduce motivación",
+      "Favorece aprendizaje inmersivo",
+      "Elimina trabajo cooperativo",
+      "Sustituye experiencia real"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Incrementa estímulos y favorece experiencias inmersivas contextualizadas."
+  },
+  {
+    "pregunta": "¿Qué principio es clave en el diseño gamificado?",
+    "opciones": [
+      "Improvisación",
+      "Definición clara de objetivos",
+      "Eliminación feedback",
+      "Examen final único"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "La gamificación exige objetivos definidos y conductas clave."
+  },
+  {
+    "pregunta": "¿Qué permite el microaprendizaje?",
+    "opciones": [
+      "Clases extensas",
+      "Unidades breves focalizadas",
+      "Memorización lineal",
+      "Eliminación contenidos"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Organiza contenidos en cápsulas breves y específicas."
+  },
+  {
+    "pregunta": "¿Qué reto presentan las analíticas educativas?",
+    "opciones": [
+      "Exceso privacidad",
+      "Garantizar protección de datos",
+      "Falta algoritmos",
+      "Ausencia información"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Es necesario garantizar seguridad y uso ético de datos."
+  },
+  {
+    "pregunta": "¿Qué técnica permite formar subgrupos según patrones?",
+    "opciones": [
+      "Clustering",
+      "OCR",
+      "Photoshop",
+      "Compilación manual"
+    ],
+    "correcta": 0,
+    "nivel": "medio",
+    "explicacion": "El clustering agrupa estudiantes según similitudes detectadas."
+  },
+  {
+    "pregunta": "¿Qué función pueden cumplir los chatbots en idiomas?",
+    "opciones": [
+      "Simular diálogos comunicativos",
+      "Eliminar práctica oral",
+      "Reducir interacción",
+      "Sustituir evaluación"
+    ],
+    "correcta": 0,
+    "nivel": "medio",
+    "explicacion": "Permiten practicar competencia comunicativa mediante simulación."
+  },
+  {
+    "pregunta": "¿Qué modelo predictivo se menciona en analíticas?",
+    "opciones": [
+      "Regresión múltiple",
+      "Blockchain",
+      "Renderizado 3D",
+      "Fotogrametría"
+    ],
+    "correcta": 0,
+    "nivel": "medio",
+    "explicacion": "La regresión múltiple se usa para predicción de rendimiento."
+  },
+  {
+    "pregunta": "¿Qué ventaja educativa tiene la gamificación?",
+    "opciones": [
+      "Favorece resolución de problemas",
+      "Reduce atención",
+      "Impide retroalimentación",
+      "Elimina cooperación"
+    ],
+    "correcta": 0,
+    "nivel": "medio",
+    "explicacion": "Mejora implicación, cooperación y resolución de problemas."
+  },
+  {
+    "pregunta": "¿Qué permiten los dashboards educativos?",
+    "opciones": [
+      "Visualizar progreso y desempeño",
+      "Eliminar evaluación",
+      "Sustituir planificación",
+      "Reducir datos"
+    ],
+    "correcta": 0,
+    "nivel": "medio",
+    "explicacion": "Los dashboards muestran visualmente patrones y progreso."
+  },
+  {
+    "pregunta": "¿Qué exige la integración de tecnologías emergentes?",
+    "opciones": [
+      "Moda tecnológica",
+      "Justificación pedagógica clara",
+      "Eliminación currículo",
+      "Uso ilimitado"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Debe estar fundamentada en objetivos didácticos."
+  },
+
+  {
+    "pregunta": "¿Qué diferencia a un chatbot de un avatar?",
+    "opciones": [
+      "El chatbot no necesariamente representa un humano en entorno virtual",
+      "El avatar no tiene cuerpo",
+      "El chatbot es físico",
+      "No existe diferencia"
+    ],
+    "correcta": 0,
+    "nivel": "avanzado",
+    "explicacion": "El chatbot interactúa conversacionalmente sin representar un personaje virtual."
+  },
+  {
+    "pregunta": "¿Qué permite la cognición distribuida en educación digital?",
+    "opciones": [
+      "Eliminar memoria",
+      "Entender dispositivos como extensión cognitiva",
+      "Prohibir tecnología",
+      "Reducir interacción"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "La cognición distribuida considera tecnología como extensión mental."
+  },
+  {
+    "pregunta": "¿Qué riesgo supone reducir competencia digital a habilidad técnica?",
+    "opciones": [
+      "Fortalece pensamiento crítico",
+      "Elimina dimensión ética y crítica",
+      "Incrementa creatividad",
+      "Mejora colaboración"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "La competencia digital incluye dimensión crítica y ética."
+  },
+  {
+    "pregunta": "¿Qué permiten los árboles de decisión en analíticas?",
+    "opciones": [
+      "Organizar reglas jerárquicamente para predecir resultados",
+      "Eliminar datos",
+      "Reducir evaluación",
+      "Evitar clasificación"
+    ],
+    "correcta": 0,
+    "nivel": "avanzado",
+    "explicacion": "Estructuran reglas jerárquicas desde raíz hasta hojas."
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un chatbot educativo eficaz?",
+    "opciones": [
+      "Interpretar contexto y adaptar respuestas",
+      "Responder siempre igual",
+      "Carecer de retroalimentación",
+      "Ser lineal y rígido"
+    ],
+    "correcta": 0,
+    "nivel": "avanzado",
+    "explicacion": "Debe interpretar contexto mediante procesamiento de lenguaje natural."
+  },
+  {
+    "pregunta": "¿Qué principio neuroeducativo respalda la gamificación?",
+    "opciones": [
+      "Activación de mecanismos de recompensa",
+      "Inhibición memoria",
+      "Reducción plasticidad",
+      "Supresión emoción"
+    ],
+    "correcta": 0,
+    "nivel": "avanzado",
+    "explicacion": "La motivación activa memoria declarativa mediante recompensa."
+  },
+  {
+    "pregunta": "¿Qué exige la evaluación en entornos inteligentes?",
+    "opciones": [
+      "Libro cerrado",
+      "Valoración competencial y personalizada",
+      "Memorización rígida",
+      "Examen único"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Debe valorar competencias complejas y progresión individual."
+  },
+  {
+    "pregunta": "¿Qué beneficio estructural aportan las tecnologías emergentes?",
+    "opciones": [
+      "Sustitución docente",
+      "Mejora de seguimiento y personalización",
+      "Reducción interacción",
+      "Eliminación planificación"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Permiten mayor seguimiento, apoyo y personalización educativa."
+  },
+  {
+    "pregunta": "¿Qué exige el uso ético de analíticas educativas?",
+    "opciones": [
+      "Opacidad datos",
+      "Transparencia y protección datos",
+      "Uso ilimitado información",
+      "Centralización absoluta"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Es imprescindible garantizar ética, transparencia y seguridad."
+  },
+  {
+    "pregunta": "¿Cuál es el objetivo final de integrar tecnologías emergentes?",
+    "opciones": [
+      "Sustituir profesorado",
+      "Optimizar aprendizaje mediante retroalimentación y personalización",
+      "Eliminar currículo",
+      "Reducir interacción social"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "El objetivo es mejorar aprendizaje, seguimiento y personalización."
+  }
+],
     "Tema 7": []
   },
   "examenes": {
