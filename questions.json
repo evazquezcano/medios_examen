@@ -717,7 +717,371 @@
   }
 ]
 ,
-    "Tema 4": [],
+    "Tema 4": [
+  {
+    "pregunta": "¿Qué caracteriza al aprendizaje móvil y ubicuo?",
+    "opciones": [
+      "Se desarrolla exclusivamente en el aula",
+      "Permite aprender en cualquier lugar y momento",
+      "Depende únicamente del horario escolar",
+      "Se basa solo en clases magistrales"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "El aprendizaje móvil y ubicuo permite el desarrollo de actividades educativas dentro y fuera del aula sin limitación espacial o temporal."
+  },
+  {
+    "pregunta": "¿Qué lema identifica a la sociedad de la ubicuidad?",
+    "opciones": [
+      "Learning everywhere",
+      "Anyone, anywhere, anytime",
+      "Digital first",
+      "Always connected"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "La sociedad de la ubicuidad se define por el acceso para cualquiera, en cualquier lugar y momento."
+  },
+  {
+    "pregunta": "¿Qué tendencia metodológica reorganiza el tiempo dentro y fuera del aula?",
+    "opciones": [
+      "Gamificación",
+      "Flipped Classroom",
+      "Clase magistral extendida",
+      "Memorización secuencial"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "El aula invertida reorganiza el tiempo para dedicar la clase a actividades activas y colaborativas."
+  },
+  {
+    "pregunta": "¿Qué enfoque promueve la resolución de problemas reales mediante un reto?",
+    "opciones": [
+      "Aprendizaje basado en retos",
+      "Clase expositiva",
+      "Evaluación tradicional",
+      "Lección memorística"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "El aprendizaje basado en retos implica afrontar problemas reales vinculados al entorno."
+  },
+  {
+    "pregunta": "¿Qué principio exige el aprendizaje adaptado?",
+    "opciones": [
+      "Uniformidad de ritmo",
+      "Evaluación final única",
+      "Flexibilidad y adaptación a ritmos individuales",
+      "Reducción de contenidos"
+    ],
+    "correcta": 2,
+    "nivel": "basico",
+    "explicacion": "El aprendizaje adaptado se basa en flexibilidad y progresión personalizada."
+  },
+  {
+    "pregunta": "¿Qué dispositivo es considerado un miniordenador por su funcionalidad?",
+    "opciones": [
+      "Smartphone",
+      "Proyector",
+      "Pizarra digital",
+      "Router"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "El smartphone puede considerarse un miniordenador por sus capacidades técnicas."
+  },
+  {
+    "pregunta": "¿Qué iniciativa permite al estudiante usar su propio dispositivo en el aula?",
+    "opciones": [
+      "MOOC",
+      "BYOD",
+      "LMS",
+      "TIC 2.0"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "BYOD significa 'Bring Your Own Device' y permite utilizar dispositivos propios."
+  },
+  {
+    "pregunta": "¿Qué paradigma describe el aprendizaje distribuido en tiempo y espacio?",
+    "opciones": [
+      "Aprendizaje memorístico",
+      "Aprendizaje ubicuo",
+      "Aprendizaje repetitivo",
+      "Aprendizaje aislado"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "El aprendizaje ubicuo distribuye la experiencia formativa en distintos contextos."
+  },
+  {
+    "pregunta": "¿Qué tecnología se asocia con experiencias inmersivas educativas?",
+    "opciones": [
+      "Realidad aumentada",
+      "Fax digital",
+      "Correo postal",
+      "Impresión offset"
+    ],
+    "correcta": 0,
+    "nivel": "basico",
+    "explicacion": "La realidad aumentada permite experiencias inmersivas integradas en contextos educativos."
+  },
+  {
+    "pregunta": "¿Qué exige el uso educativo de dispositivos digitales?",
+    "opciones": [
+      "Moda tecnológica",
+      "Vinculación curricular y competencial",
+      "Sustitución del docente",
+      "Eliminación de evaluación"
+    ],
+    "correcta": 1,
+    "nivel": "basico",
+    "explicacion": "Sin una clara vinculación curricular, el uso tecnológico carece de valor educativo."
+  },
+
+  {
+    "pregunta": "¿Qué implica la 'Didáctica de la Ubicuidad'?",
+    "opciones": [
+      "Eliminar clases presenciales",
+      "Diseñar estrategias adaptadas a contextos móviles",
+      "Reducir interacción",
+      "Uniformizar contenidos"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "La Didáctica de la Ubicuidad adapta estrategias educativas a contextos móviles y digitales."
+  },
+  {
+    "pregunta": "¿Qué cambio propone Cope y Kalantzis respecto a las fronteras educativas?",
+    "opciones": [
+      "Mantener simultaneidad espacial",
+      "Difuminar límites institucionales y temporales",
+      "Eliminar formación continua",
+      "Reducir colaboración"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Se propone superar las limitaciones espaciales y temporales tradicionales."
+  },
+  {
+    "pregunta": "¿Qué favorece el aprendizaje basado en retos?",
+    "opciones": [
+      "Memorización aislada",
+      "Indagación y creación de soluciones reales",
+      "Exámenes cerrados",
+      "Repetición sistemática"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Impulsa la indagación activa y la creación de soluciones contextualizadas."
+  },
+  {
+    "pregunta": "¿Qué característica distingue al aprendizaje híbrido?",
+    "opciones": [
+      "Solo presencial",
+      "Solo online",
+      "Combinación de presencialidad y virtualidad",
+      "Eliminación de campus"
+    ],
+    "correcta": 2,
+    "nivel": "medio",
+    "explicacion": "El aprendizaje híbrido combina entornos presenciales y virtuales."
+  },
+  {
+    "pregunta": "¿Qué efecto positivo se asocia al uso educativo de videojuegos?",
+    "opciones": [
+      "Aislamiento social obligatorio",
+      "Mejora de memoria y velocidad de procesamiento",
+      "Reducción cognitiva",
+      "Eliminación colaboración"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Diversos estudios muestran mejoras cognitivas con uso adecuado de videojuegos."
+  },
+  {
+    "pregunta": "¿Qué nivel del uso del smartphone implica creación y publicación de contenidos?",
+    "opciones": [
+      "Nivel 1",
+      "Nivel 2",
+      "Nivel 3",
+      "Nivel 6"
+    ],
+    "correcta": 2,
+    "nivel": "medio",
+    "explicacion": "En el Nivel 3 el estudiante crea y publica contenidos."
+  },
+  {
+    "pregunta": "¿Qué exige el aprendizaje adaptado respecto a la evaluación?",
+    "opciones": [
+      "Evaluación única final",
+      "Evaluación continua y personalizada",
+      "Examen memorístico",
+      "Eliminación seguimiento"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Requiere evaluación continua vinculada al progreso individual."
+  },
+  {
+    "pregunta": "¿Qué concepto describe la integración invisible de tecnología en el entorno?",
+    "opciones": [
+      "Ubiquitous computing",
+      "Desktop learning",
+      "Offline education",
+      "Printed computing"
+    ],
+    "correcta": 0,
+    "nivel": "medio",
+    "explicacion": "La computación ubicua integra dispositivos de forma natural en el entorno."
+  },
+  {
+    "pregunta": "¿Qué demanda el mundo laboral en relación con el aprendizaje ubicuo?",
+    "opciones": [
+      "Rigidez estructural",
+      "Flexibilidad y competencia colaborativa",
+      "Memorización lineal",
+      "Aislamiento profesional"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Se demandan trabajadores flexibles, colaborativos y competentes digitalmente."
+  },
+  {
+    "pregunta": "¿Qué riesgo puede asociarse al uso intensivo de dispositivos móviles?",
+    "opciones": [
+      "Autonomía excesiva",
+      "Dependencia y problemas psicosociales",
+      "Mayor atención permanente",
+      "Desaparición distracciones"
+    ],
+    "correcta": 1,
+    "nivel": "medio",
+    "explicacion": "Se advierten riesgos de dependencia y efectos psicosociales."
+  },
+
+  {
+    "pregunta": "¿Qué transformación implica conectar cognición individual y distribuida?",
+    "opciones": [
+      "Eliminar memoria",
+      "Entender dispositivos como extensión mental",
+      "Prohibir tecnología",
+      "Eliminar evaluación"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "La cognición distribuida entiende los dispositivos como extensión de la mente."
+  },
+  {
+    "pregunta": "¿Qué principio debe regir la integración de videojuegos en educación?",
+    "opciones": [
+      "Uso ilimitado",
+      "Justificación pedagógica y control temporal",
+      "Competencia exclusiva",
+      "Sustitución currículo"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Su uso debe estar previamente justificado y tasado en el tiempo."
+  },
+  {
+    "pregunta": "¿Qué caracteriza al 'aprendizaje sensible al contexto'?",
+    "opciones": [
+      "Contenido fijo",
+      "Adaptación al entorno físico del estudiante",
+      "Desconexión GPS",
+      "Uniformidad global"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Ofrece contenido adaptado al contexto físico del usuario."
+  },
+  {
+    "pregunta": "¿Qué exige la evaluación en entornos ubicuos?",
+    "opciones": [
+      "Libro cerrado",
+      "Nuevas formas de valorar competencias",
+      "Memorización rígida",
+      "Eliminación rúbricas"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Debe valorar saber cómo saber, no solo acumulación de información."
+  },
+  {
+    "pregunta": "¿Qué define a un entorno adaptado eficaz?",
+    "opciones": [
+      "Rigidez curricular",
+      "Flexibilidad y reorganización de itinerarios",
+      "Uniformidad absoluta",
+      "Eliminación diversidad"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Implica reorganizar secuencias y adaptar itinerarios."
+  },
+  {
+    "pregunta": "¿Qué cambio estructural promueve el aprendizaje ubicuo?",
+    "opciones": [
+      "Centralización rígida",
+      "Culturas de conocimiento colaborativo",
+      "Aislamiento individual",
+      "Exclusividad docente"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Promueve comunidades de práctica y construcción colectiva."
+  },
+  {
+    "pregunta": "¿Qué exige la integración de apps en educación superior?",
+    "opciones": [
+      "Prohibición tecnológica",
+      "Educación con y de la tecnología",
+      "Uso recreativo exclusivo",
+      "Sustitución presencialidad"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Se requiere educación en uso responsable y pedagógico."
+  },
+  {
+    "pregunta": "¿Qué condición es imprescindible para el valor educativo de lo móvil?",
+    "opciones": [
+      "Popularidad",
+      "Planteamiento didáctico sólido",
+      "Cantidad dispositivos",
+      "Coste elevado"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Sin planteamiento didáctico claro, la tecnología carece de sentido educativo."
+  },
+  {
+    "pregunta": "¿Qué implican los siete cambios propuestos para el aprendizaje ubicuo?",
+    "opciones": [
+      "Continuidad modelo tradicional",
+      "Transformación profunda de cultura pedagógica",
+      "Reducción colaboración",
+      "Eliminación presencialidad"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Proponen una transformación estructural del modelo educativo."
+  },
+  {
+    "pregunta": "¿Qué debe vincularse a cada propuesta de aprendizaje móvil?",
+    "opciones": [
+      "Solo tecnología",
+      "Contenidos, competencias y evaluación",
+      "Moda digital",
+      "Redes sociales"
+    ],
+    "correcta": 1,
+    "nivel": "avanzado",
+    "explicacion": "Cada propuesta debe vincular contenidos, competencias y evaluación integral."
+  }
+]
+,
     "Tema 5": [],
     "Tema 6": [],
     "Tema 7": []
