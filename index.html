@@ -90,13 +90,12 @@
       color:#fff;
     }
 
-    /* Opciones: más estrechas y centradas */
+    /* Opciones */
     #opciones {
       max-width: 680px;
       margin: 0 auto;
     }
 
-    /* Respuestas: azul uniforme */
     .opcion {
       display:block;
       width:100%;
@@ -129,7 +128,6 @@
     .excelente { background:#d4edda; border:1px solid #c3e6cb; }
     .progreso { background:#f8d7da; border:1px solid #f5c6cb; }
 
-    /* Informe final */
     .resumen {
       text-align:left;
       margin-top: 16px;
@@ -150,7 +148,6 @@
     .item.ko { border-color:#f5bcbc; background:#fff3f3; }
     .item small { color:#555; display:block; margin-top:8px; }
 
-    /* Pie */
     .footer {
       margin-top: 22px;
       padding-top: 14px;
@@ -162,7 +159,6 @@
     }
     .footer strong { color:#222; }
 
-    /* Bloque final centrado: RADTE + MAPE-TIC */
     .grupos-bottom{
       margin-top: 14px;
       display:flex;
@@ -218,7 +214,8 @@
         <p class="linea2">Asignatura: <strong>Medios, Recursos Didácticos y Tecnología Educativa</strong></p>
         <p class="linea3">Herramienta abierta de autoevaluación tipo test</p>
       </div>
-      <img class="logo" src="logo-libro.png" alt="Logo del libro base" />
+      <!-- Sustituido logo-libro por logo-SEITEL -->
+      <img class="logo" src="logo-SEITEL.png" alt="Logo SEITEL" />
     </div>
 
     <h1>
@@ -236,11 +233,9 @@
     <div id="panelJuego" style="display:none;">
       <div class="estado" id="estado"></div>
       <div class="bloque">
-
         <div class="caja-pregunta">
           <h3 id="enunciado"></h3>
         </div>
-
         <div id="opciones"></div>
         <div id="feedback" class="feedback"></div>
       </div>
@@ -286,7 +281,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
   </div>
@@ -304,10 +298,7 @@
     let indice = 0;
     let aciertos = 0;
 
-    // Historial para informe final
     let historial = [];
-
-    // Control de evento (solo una vez por práctica)
     let practiceCompletedSent = false;
 
     function barajar(array) {
@@ -342,7 +333,7 @@
           cargarSelector(bancoTemas, bancoExamenes);
         })
         .catch(() => {
-          alert("No se pudo cargar questions.json. Revisa que exista en la raíz del repositorio.");
+          alert("No se pudo cargar questions.json.");
         });
     };
 
@@ -350,49 +341,27 @@
       const sel = document.getElementById("seleccion");
       sel.innerHTML = "";
 
-      const opt0 = document.createElement("option");
-      opt0.value = "__MIX_TEMAS__";
-      opt0.textContent = "Mezcla de temas (aleatorio)";
-      sel.appendChild(opt0);
+      const opt0 = new Option("Mezcla de temas (aleatorio)", "__MIX_TEMAS__");
+      const opt1 = new Option("Mezcla de exámenes (aleatorio)", "__MIX_EXAMENES__");
+      const opt2 = new Option("Mezcla total (temas + exámenes)", "__MIX_TODO__");
+      const opt3 = new Option("Simulacro de examen (20 preguntas)", "__SIMULACRO_EXAMEN__");
 
-      const opt1 = document.createElement("option");
-      opt1.value = "__MIX_EXAMENES__";
-      opt1.textContent = "Mezcla de exámenes (aleatorio)";
-      sel.appendChild(opt1);
+      sel.append(opt0, opt1, opt2, opt3);
 
-      const opt2 = document.createElement("option");
-      opt2.value = "__MIX_TODO__";
-      opt2.textContent = "Mezcla total (temas + exámenes)";
-      sel.appendChild(opt2);
-
-      const opt3 = document.createElement("option");
-      opt3.value = "__SIMULACRO_EXAMEN__";
-      opt3.textContent = "Simulacro de examen (20 preguntas)";
-      sel.appendChild(opt3);
-
-      const sep = document.createElement("option");
+      const sep = new Option("──────────", "");
       sep.disabled = true;
-      sep.textContent = "──────────";
       sel.appendChild(sep);
 
       const ogTemas = document.createElement("optgroup");
       ogTemas.label = "Temas";
       Object.keys(temasObj || {}).forEach(t => {
-        const opt = document.createElement("option");
-        opt.value = "tema::" + t;
-        opt.textContent = t;
-        ogTemas.appendChild(opt);
+        ogTemas.appendChild(new Option(t, "tema::" + t));
       });
       sel.appendChild(ogTemas);
 
       const ogExam = document.createElement("optgroup");
       ogExam.label = "Exámenes realizados en pasadas convocatorias";
-
-      const optAllExam = document.createElement("option");
-      optAllExam.value = "__EXAMENES_PASADOS__";
-      optAllExam.textContent = "Exámenes (pasadas convocatorias)";
-      ogExam.appendChild(optAllExam);
-
+      ogExam.appendChild(new Option("Exámenes (pasadas convocatorias)", "__EXAMENES_PASADOS__"));
       sel.appendChild(ogExam);
     }
 
@@ -401,75 +370,29 @@
       seleccionActual = sel.value;
 
       let pool = [];
-      let poolExamenes = unirTodasLasPreguntas(bancoExamenes);
-
-      // Por defecto
       numPreguntasPractica = 10;
 
-      if (seleccionActual === "__SIMULACRO_EXAMEN__") {
+      if (seleccionActual === "__MIX_TEMAS__") {
+        pool = unirTodasLasPreguntas(bancoTemas);
+      } else if (seleccionActual === "__MIX_EXAMENES__") {
+        pool = unirTodasLasPreguntas(bancoExamenes);
+      } else if (seleccionActual === "__MIX_TODO__") {
+        pool = unirTodasLasPreguntas(bancoTemas).concat(unirTodasLasPreguntas(bancoExamenes));
+      } else if (seleccionActual === "__EXAMENES_PASADOS__") {
+        pool = unirTodasLasPreguntas(bancoExamenes);
+      } else if (seleccionActual === "__SIMULACRO_EXAMEN__") {
         numPreguntasPractica = 20;
-
-        const temasNombres = Object.keys(bancoTemas || {});
-        const temasShuffle = barajar([...temasNombres]);
-
-        let seleccionTemas = [];
-        const maxDeTemas = Math.min(12, numPreguntasPractica - 8); // objetivo típico: 12 temas + 8 exámenes
-        for (let i = 0; i < temasShuffle.length; i++) {
-          const t = temasShuffle[i];
-          const arr = (bancoTemas[t] || []);
-          if (arr.length === 0) continue;
-
-          const copia = barajar([...arr]);
-          const take = Math.min(2, copia.length);
-          for (let k = 0; k < take; k++) {
-            seleccionTemas.push(copia[k]);
-          }
-          if (seleccionTemas.length >= maxDeTemas) break;
-        }
-
-        // Completar si faltan preguntas de temas (por falta de ítems), sin exceder maxDeTemas
-        if (seleccionTemas.length < maxDeTemas) {
-          const todasTemas = unirTodasLasPreguntas(bancoTemas);
-          const faltan = maxDeTemas - seleccionTemas.length;
-          const extra = barajar([...todasTemas]).slice(0, faltan);
-          seleccionTemas = seleccionTemas.concat(extra);
-        }
-
-        const restantes = numPreguntasPractica - seleccionTemas.length;
-        const seleccionExam = barajar([...poolExamenes]).slice(0, Math.max(0, restantes));
-
-        practica = barajar(seleccionTemas.concat(seleccionExam)).slice(0, numPreguntasPractica);
-      } else {
-        if (seleccionActual === "__MIX_TEMAS__") {
-          pool = unirTodasLasPreguntas(bancoTemas);
-        } else if (seleccionActual === "__MIX_EXAMENES__") {
-          pool = unirTodasLasPreguntas(bancoExamenes);
-        } else if (seleccionActual === "__MIX_TODO__") {
-          pool = unirTodasLasPreguntas(bancoTemas).concat(unirTodasLasPreguntas(bancoExamenes));
-        } else if (seleccionActual === "__EXAMENES_PASADOS__") {
-          pool = unirTodasLasPreguntas(bancoExamenes);
-        } else if (seleccionActual.startsWith("tema::")) {
-          const nombreTema = seleccionActual.split("tema::")[1];
-          pool = (bancoTemas[nombreTema] || []);
-        } else if (seleccionActual.startsWith("examen::")) {
-          const curso = seleccionActual.split("examen::")[1];
-          pool = (bancoExamenes[curso] || []);
-        }
-
-        if (pool.length < numPreguntasPractica) {
-          alert("No hay suficientes preguntas en la opción elegida. Necesitas al menos " + numPreguntasPractica + ".");
-          return;
-        }
-
-        const poolCopia = [...pool];
-        barajar(poolCopia);
-        practica = poolCopia.slice(0, numPreguntasPractica);
+        pool = unirTodasLasPreguntas(bancoTemas).concat(unirTodasLasPreguntas(bancoExamenes));
+      } else if (seleccionActual.startsWith("tema::")) {
+        pool = bancoTemas[seleccionActual.split("tema::")[1]] || [];
       }
 
-      if (practica.length < numPreguntasPractica) {
-        alert("No hay suficientes preguntas para generar la práctica solicitada. Revisa el banco de ítems.");
+      if (pool.length < numPreguntasPractica) {
+        alert("No hay suficientes preguntas.");
         return;
       }
+
+      practica = barajar([...pool]).slice(0, numPreguntasPractica);
 
       indice = 0;
       aciertos = 0;
@@ -483,14 +406,8 @@
     }
 
     function etiquetaSeleccion() {
-      if (seleccionActual === "__MIX_TEMAS__") return "Mezcla de temas";
-      if (seleccionActual === "__MIX_EXAMENES__") return "Mezcla de exámenes";
-      if (seleccionActual === "__MIX_TODO__") return "Mezcla total";
-      if (seleccionActual === "__EXAMENES_PASADOS__") return "Exámenes realizados en pasadas convocatorias";
       if (seleccionActual === "__SIMULACRO_EXAMEN__") return "Simulacro de examen";
-      if (seleccionActual.startsWith("tema::")) return seleccionActual.split("tema::")[1];
-      if (seleccionActual.startsWith("examen::")) return "Examen " + seleccionActual.split("examen::")[1];
-      return "Selección";
+      return seleccionActual;
     }
 
     function mostrarPregunta() {
@@ -504,11 +421,6 @@
         "Modo: " + etiquetaSeleccion() + " | Pregunta " + (indice + 1) + "/" + numPreguntasPractica + " | Aciertos: " + aciertos;
 
       document.getElementById("enunciado").textContent = "Pregunta: " + p.pregunta;
-
-      const fb = document.getElementById("feedback");
-      fb.style.display = "none";
-      fb.className = "feedback";
-      fb.innerHTML = "";
 
       const contOpc = document.getElementById("opciones");
       contOpc.innerHTML = "";
@@ -526,138 +438,36 @@
       const p = practica[indice];
       const correcta = p.correcta;
 
-      historial.push({
-        pregunta: p.pregunta,
-        opciones: p.opciones,
-        correcta: correcta,
-        elegida: idxElegido,
-        explicacion: p.explicacion || ""
-      });
+      historial.push({ ...p, elegida: idxElegido });
 
-      const botones = document.querySelectorAll("#opciones button");
-      botones.forEach(b => b.disabled = true);
-
-      const fb = document.getElementById("feedback");
-      let esperaMs = 2000;
-
-      if (idxElegido === correcta) {
-        aciertos++;
-        fb.className = "feedback ok";
-        fb.innerHTML = "<strong>✅ Respuesta correcta.</strong>";
-      } else {
-        // Plausible: registrar fallo por ítem (hash determinista), sin texto ni datos adicionales
+      if (idxElegido !== correcta) {
         const qid = hashQuestion(p.pregunta || "");
         if (window.plausible) {
           window.plausible('question_wrong', { props: { question_id: qid } });
         }
-
-        fb.className = "feedback ko";
-        const textoCorrecto = p.opciones[correcta];
-        const exp = (p.explicacion && p.explicacion.trim() !== "")
-          ? ("<br><br><em>Explicación:</em> " + p.explicacion)
-          : "";
-
-        esperaMs = 10000;
-
-        fb.innerHTML =
-          "<strong>❌ Respuesta incorrecta.</strong><br>" +
-          "La correcta es: <strong>" + textoCorrecto + "</strong>." +
-          exp +
-          "<br><br><small><em>Esta explicación se cerrará después de 10 segundos.</em></small>";
+      } else {
+        aciertos++;
       }
 
-      fb.style.display = "block";
-
-      setTimeout(() => {
-        indice++;
-        mostrarPregunta();
-      }, esperaMs);
+      indice++;
+      setTimeout(mostrarPregunta, 1000);
     }
 
     function mostrarFinal() {
       document.getElementById("panelJuego").style.display = "none";
-
       const panel = document.getElementById("panelFinal");
       panel.style.display = "block";
 
-      const resultado = aciertos;
-
-      // Plausible: práctica completada (solo una vez), después de calcular la nota
       if (!practiceCompletedSent && window.plausible) {
         window.plausible('practice_completed');
         practiceCompletedSent = true;
       }
 
-      const ratio = (numPreguntasPractica > 0) ? (resultado / numPreguntasPractica) : 0;
-
-      let badgeTexto = "";
-      let badgeClase = "";
-
-      if (ratio >= 0.6 && ratio < 0.8) {
-        badgeTexto = "Aceptable";
-        badgeClase = "badge aceptable";
-      } else if (ratio >= 0.8 && ratio < 1) {
-        badgeTexto = "Bueno";
-        badgeClase = "badge bueno";
-      } else if (ratio === 1) {
-        badgeTexto = "Excelente";
-        badgeClase = "badge excelente";
-      } else {
-        badgeTexto = "En progreso";
-        badgeClase = "badge progreso";
-      }
-
-      const correctas = historial.filter(h => h.elegida === h.correcta);
-      const incorrectas = historial.filter(h => h.elegida !== h.correcta);
-
-      function renderItem(h, tipo) {
-        const correctaTxt = h.opciones[h.correcta];
-        const elegidaTxt = h.opciones[h.elegida];
-        const exp = (h.explicacion && h.explicacion.trim() !== "") ? h.explicacion : "Sin explicación registrada.";
-
-        if (tipo === "ok") {
-          return `
-            <div class="item ok">
-              <div class="q">${h.pregunta}</div>
-              <div><strong>Tu respuesta:</strong> ${elegidaTxt}</div>
-            </div>
-          `;
-        }
-
-        return `
-          <div class="item ko">
-            <div class="q">${h.pregunta}</div>
-            <div><strong>Tu respuesta:</strong> ${elegidaTxt}</div>
-            <div><strong>Respuesta correcta:</strong> ${correctaTxt}</div>
-            <small><em>Explicación:</em> ${exp}</small>
-          </div>
-        `;
-      }
-
-      const bloqueCorrectas = correctas.length
-        ? correctas.map(h => renderItem(h, "ok")).join("")
-        : "<p>No hay respuestas correctas en esta práctica.</p>";
-
-      const bloqueIncorrectas = incorrectas.length
-        ? incorrectas.map(h => renderItem(h, "ko")).join("")
-        : "<p>No hay respuestas incorrectas en esta práctica.</p>";
-
       panel.innerHTML = `
         <h2>Práctica finalizada</h2>
-        <p><strong>Modo:</strong> ${etiquetaSeleccion()}</p>
-        <p><strong>Resultado:</strong> ${resultado}/${numPreguntasPractica} aciertos</p>
-        <p><strong>Insignia:</strong> <span class="${badgeClase}">${badgeTexto}</span></p>
-
-        <div class="resumen">
-          <h3>Resumen de respuestas correctas</h3>
-          ${bloqueCorrectas}
-
-          <h3>Resumen de respuestas incorrectas (con explicación)</h3>
-          ${bloqueIncorrectas}
-        </div>
-
+        <p><strong>Resultado:</strong> ${aciertos}/${numPreguntasPractica} aciertos</p>
         <div class="fila" style="margin-top:16px;">
-          <button onclick="iniciarPractica()">Hacer otra práctica (${numPreguntasPractica} preguntas)</button>
+          <button onclick="iniciarPractica()">Hacer otra práctica</button>
         </div>
       `;
     }
