@@ -35,9 +35,9 @@
     }
 
     /* Título */
-    h1 { margin: 12px 0 6px; font-size: 26px; color:#006633; line-height: 1.15; }
-    .seitel-tagline { display:block; font-size: 16px; font-weight: 700; margin-top: 6px; color:#006633; }
-    .subtitulo { margin: 0 0 18px; color:#333; }
+    h1 { margin: 12px 0 6px; font-size: 34px; color:#006633; line-height: 1.1; }
+    .seitel-tagline { display:block; font-size: 17px; font-weight: 700; margin-top: 8px; color:#006633; }
+    .subtitulo { margin: 14px 0 18px; color:#333; }
 
     .fila { margin: 14px 0; }
     select, button { padding: 10px 12px; font-size: 16px; border-radius: 6px; }
@@ -46,15 +46,21 @@
 
     .btn-link{
       display:inline-block;
-      padding: 10px 12px;
+      padding: 10px 14px;
       border-radius: 6px;
       background:#2c7be5;
       color:#fff;
       text-decoration:none;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
     }
     .btn-link:hover{ background:#1a5fc4; }
+
+    /* Guía centrada */
+    .guia-center{
+      text-align:center;
+      margin: 18px 0 6px;
+    }
 
     /* Estado (modo/pregunta/aciertos) */
     .estado {
@@ -153,41 +159,31 @@
       font-size: 13px;
       color: #444;
       line-height: 1.6;
-      position: relative;
-      min-height: 170px;
     }
     .footer strong { color:#222; }
 
-    .transparencia {
-      margin-top: 8px;
-      color:#444;
+    /* Bloque final centrado: RADTE + MAPE-TIC */
+    .grupos-bottom{
+      margin-top: 14px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+      gap: 18px;
+      text-align:center;
     }
 
-    /* Bloque inferior derecho: RADTE + MAPE-TIC */
-    .grupos {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      align-items: end;
-      justify-items: end;
-      text-align: center;
-    }
-
-    .grupo { width: 64px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; }
+    .grupo { width: 86px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; }
 
     .grupo img {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
       display: block;
-      margin: 0 auto 3px;
+      margin: 0 auto 6px;
     }
 
     .grupo .caption {
-      font-size: 7px;
+      font-size: 10px;
       color: #444;
       line-height: 1.1;
       white-space: nowrap;
@@ -203,15 +199,11 @@
     }
 
     @media (max-width: 600px) {
-      .footer { min-height: 0; }
-      .grupos {
-        position: static;
-        margin-top: 12px;
-        justify-items: center;
-      }
-      .grupo { width: 76px; }
-      .grupo img { width: 42px; height: 42px; }
-      .grupo .caption { font-size: 9px; }
+      body { padding: 20px; }
+      .grupo { width: 96px; }
+      .grupo img { width: 48px; height: 48px; }
+      .grupo .caption { font-size: 11px; }
+      .grupos-bottom{ gap: 14px; }
     }
   </style>
 </head>
@@ -275,15 +267,12 @@
       <p>
         <strong>Nota:</strong> Recurso abierto y gratuito para la práctica formativa (no sustituye la evaluación oficial de la asignatura).
       </p>
-      <div class="fila" style="margin: 6px 0 10px;">
+
+      <div class="guia-center">
         <a class="btn-link" href="XXX" target="_blank" rel="noopener noreferrer">Guía de funcionamiento de esta herramienta</a>
       </div>
 
-      <p class="transparencia">
-        Se recopilan métricas agregadas anónimas de uso (visitas, prácticas completadas y frecuencia de error por ítem), sin cookies ni identificación personal, conforme al principio de minimización de datos.
-      </p>
-
-      <div class="grupos" aria-label="Grupos de investigación e innovación docente">
+      <div class="grupos-bottom" aria-label="Grupos de investigación e innovación docente">
         <div class="grupo">
           <img src="logo-radte.png" alt="Logo RADTE" />
           <div class="caption">
@@ -297,6 +286,7 @@
           </div>
         </div>
       </div>
+
     </div>
 
   </div>
